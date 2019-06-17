@@ -1,0 +1,91 @@
+/*
+ * ============================================================================
+ *
+ *       Filename:  messages.c
+ *
+ *    Description:  Program messages implementation
+ *
+ *        Created:  16/06/2019
+ *       Compiler:  gcc
+ *
+ *         Author:  Matheus Toazza Tura
+ *                  Daniel Maia Cunha
+ *                  Arthur Ribeiro
+ *
+ *   Organization:  UFRGS
+ *
+ * ============================================================================
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include "colors.h"
+#include "messages.h"
+
+/*
+ * Help message
+ */
+void help()
+{
+    fprintf(stdout, CYAN __PROGRAM_NAME__" - "__PROGRAM_EXTNAME__"\n\n" NO_COLOR);
+    usage();
+    description();
+    options();
+    author();
+    version();
+}
+
+/*
+ * Usage message
+ */
+void usage()
+{
+    fprintf(stdout, BROWN "USAGE\n" NO_COLOR);
+    fprintf(stdout, "\t%s [options] input file\n\n", __PROGRAM_NAME__);
+}
+
+/*
+ * Description message
+ */
+void description()
+{
+    fprintf(stdout, BROWN "DESCRIPTION\n" NO_COLOR);
+    fprintf(stdout, "\tWrite here what you want to be your project description."
+            "Observe that you can break a string inside a fprintf\n\n");
+}
+
+/*
+ * Options message
+ */
+void options()
+{
+    fprintf(stdout, BROWN "OPTIONS\n" NO_COLOR);
+    fprintf(stdout, BOLD GRAY "\t-v, --version\n" NO_COLOR ANSI
+                    "\t\tPrints %s version\n\n", __PROGRAM_NAME__);
+    fprintf(stdout, BOLD GRAY "\t-h, --help\n" NO_COLOR ANSI
+                    "\t\tPrints this help message\n\n");
+    fprintf(stdout, BOLD GRAY "\t-m "ANSI UNDERLINE"ANGLE"ANSI" "UNDERLINE"TIME"ANSI BOLD", --move "ANSI UNDERLINE"ANGLE"ANSI" "UNDERLINE"TIME"ANSI"\n" NO_COLOR ANSI
+                    "\t\tMoves the quanser robotic arm in ANGLE degrees and TIME secs \n\n");
+    fprintf(stdout, BOLD GRAY "\t-f "UNDERLINE ANSI"FREQUENCY"ANSI BOLD", --frequency "ANSI UNDERLINE"FREQUENCY"ANSI"\n" NO_COLOR ANSI
+                    "\t\tSets the pwm frequency\n\n");
+    fprintf(stdout, BOLD GRAY "\t--no-color\n" NO_COLOR ANSI
+                    "\t\tDoes not use colors for printing\n\n");
+
+}
+
+/*
+ * Author message
+ */
+void author()
+{
+    fprintf(stdout, BROWN "AUTHORS\n" NO_COLOR);
+    fprintf(stdout, "\t%s\n\n", __PROGRAM_AUTHOR__);
+}
+
+/*
+ * Version message
+ */
+void version()
+{
+    fprintf(stdout, __PROGRAM_NAME__ GRAY " version: " GRAY "%s\n" NO_COLOR,
+            __PROGRAM_VERSION__);
+}

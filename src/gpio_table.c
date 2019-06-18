@@ -1,3 +1,22 @@
+/*
+ * ============================================================================
+ *
+ *       Filename:  gpio_table.c
+ *
+ *    Description:  Main file of the project
+ *
+ *        Created:  17/06/2019
+ *       Compiler:  gcc
+ *
+ *         Author:  Matheus Toazza Tura
+ *                  Daniel Maia Cunha
+ *                  Arthur Ribeiro
+ *
+ *   Organization:  UFRGS
+ *
+ * ============================================================================
+ */
+
 #include <string.h>
 //#include <galileo2io.h>
 

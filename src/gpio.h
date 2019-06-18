@@ -18,8 +18,8 @@
  */
  #define PWM_CLASS_PATH "~/Documents/UFRGS/MICROS/galileo-dummy-device/sys/class/pwm/pwmchip0"
  #define GPIO_CLASS_PATH "~/Documents/UFRGS/MICROS/galileo-dummy-device/sys/class/gpio"
- #define GPIO_EXPORT_PATH (GPIO_CLASS_PATH "export")
- #define GPIO_UNEXPORT_PATH (GPIO_CLASS_PATH "unexport")
+ #define GPIO_EXPORT_PATH (GPIO_CLASS_PATH "/export")
+ #define GPIO_UNEXPORT_PATH (GPIO_CLASS_PATH "/unexport")
  #define GPIO_LOW "0"
  #define GPIO_HIGH "1"
  #define GPIO_OUT "out"

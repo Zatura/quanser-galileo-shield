@@ -11,8 +11,8 @@ int set_pin(int pin, int res, int dir) {
   switch(pin) {
     case 0:
       pputs(EXPORT_PATH,"11");
-      pputs((GPIO_CLASS_PATH"/gpio11/direction"), itoa(dir));
-      pputs(GPIO_CLASS_PATH, "/gpio11/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio11/direction", itoa(dir));
+      pputs(GPIO_CLASS_PATH"/gpio11/value", itoa(res));
 
       //Level Shifter GPIO L:dir_out H:dir_in
       pputs(EXPORT_PATH,"32");

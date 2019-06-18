@@ -22,20 +22,23 @@
 #include "pgets.c"
 
 int set_pwm_frequency(){
+  return 0;
 }
 
 int get_pwm_frequency(){
-
+  return 0;
 }
 
 int get_pwm_period() {
+  /*
     static char period_string[32];
-    if (pgets(period_string, sizeof(period_string),
-              "/sys/class/pwm/pwmchip0/device/pwm_period") < 0) {
+    if (pgets(period_string, sizeof(period_string), "/sys/class/pwm/pwmchip0/device/pwm_period") < 0) {
         printf("\nReturning default PWM period: %d", PWM_DEFAULT_PERIOD);
         return PWM_DEFAULT_PERIOD;
     }
     return (int)period_string;
+    */
+    return 1;
 }
 
 int set_pwm_period(int period) {

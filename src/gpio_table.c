@@ -77,14 +77,10 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio6/value", itoa(res));
 
       pputs(EXPORT_PATH,"36");
-      pputs(GPIO_CLASS_PATH"/gpio36/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio36/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio36/direction", GPIO_OUT);
 
-      if (dir == DIR_IN){
-        pputs(EXPORT_PATH,"37");
-        pputs(GPIO_CLASS_PATH"/gpio37/direction", itoa(dir));
-        pputs(GPIO_CLASS_PATH"/gpio37/value", itoa(res));
-      }
+      pputs(EXPORT_PATH,"37");
+      pputs(GPIO_CLASS_PATH"/gpio37/direction", GPIO_OUT);
       break;
 
     case 5:
@@ -93,14 +89,14 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio0/value", itoa(res));
 
       pputs(EXPORT_PATH,"18");
-      pputs(GPIO_CLASS_PATH"/gpio18/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio18/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio18/direction", GPIO_OUT);
 
-      if (dir == DIR_IN){
-        pputs(EXPORT_PATH,"19");
-        pputs(GPIO_CLASS_PATH"/gpio19/direction", itoa(dir));
-        pputs(GPIO_CLASS_PATH"/gpio19/value", itoa(res));
-      }
+      pputs(EXPORT_PATH,"19");
+      pputs(GPIO_CLASS_PATH"/gpio19/direction", GPIO_OUT);
+      
+      pputs(EXPORT_PATH,"66");
+      pputs(GPIO_CLASS_PATH"/gpio19/direction", GPIO_OUT);      
+      pputs(GPIO_CLASS_PATH"/gpio19/value", GPIO_DOWN);
       break;
 
     case 6:
@@ -109,14 +105,14 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio1/value", itoa(res));
 
       pputs(EXPORT_PATH,"20");
-      pputs(GPIO_CLASS_PATH"/gpio20/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio20/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio20/direction", GPIO_OUT);
 
-      if (dir == DIR_IN){
-        pputs(EXPORT_PATH,"21");
-        pputs(GPIO_CLASS_PATH"/gpio21/direction", itoa(dir));
-        pputs(GPIO_CLASS_PATH"/gpio21/value", itoa(res));
-      }
+      pputs(EXPORT_PATH,"21");
+      pputs(GPIO_CLASS_PATH"/gpio21/direction", GPIO_OUT);
+      
+      pputs(EXPORT_PATH,"68");
+      pputs(GPIO_CLASS_PATH"/gpio68/direction", GPIO_OUT);      
+      pputs(GPIO_CLASS_PATH"/gpio68/value", GPIO_DOWN);
       break;
 
     case 7:
@@ -125,8 +121,7 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio38/value", itoa(res));
 
       pputs(EXPORT_PATH,"39");
-      pputs(GPIO_CLASS_PATH"/gpio39/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio39/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio39/direction", GPIO_OUT);
       break;
 
     case 8:
@@ -135,8 +130,7 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio40/value", itoa(res));
 
       pputs(EXPORT_PATH,"41");
-      pputs(GPIO_CLASS_PATH"/gpio41/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio41/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio41/direction", GPIO_OUT);
       break;
 
     case 9:
@@ -145,14 +139,14 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio4/value", itoa(res));
 
       pputs(EXPORT_PATH,"22");
-      pputs(GPIO_CLASS_PATH"/gpio22/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio22/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio22/direction", GPIO_OUT);
 
-      if (dir == DIR_IN){
-        pputs(EXPORT_PATH,"23");
-        pputs(GPIO_CLASS_PATH"/gpio23/direction", itoa(dir));
-        pputs(GPIO_CLASS_PATH"/gpio23/value", itoa(res));
-      }
+      pputs(EXPORT_PATH,"23");
+      pputs(GPIO_CLASS_PATH"/gpio23/direction", GPIO_OUT);
+      
+      pputs(EXPORT_PATH,"70");
+      pputs(GPIO_CLASS_PATH"/gpio70/direction", GPIO_OUT);
+      pputs(GPIO_CLASS_PATH"/gpio70/value", GPIO_DOWN);      
       break;
 
     case 10:
@@ -161,14 +155,14 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio10/value", itoa(res));
 
       pputs(EXPORT_PATH,"26");
-      pputs(GPIO_CLASS_PATH"/gpio26/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio26/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio26/direction", GPIO_OUT);
 
-      if (dir == DIR_IN){
-        pputs(EXPORT_PATH,"27");
-        pputs(GPIO_CLASS_PATH"/gpio27/direction", itoa(dir));
-        pputs(GPIO_CLASS_PATH"/gpio27/value", itoa(res));
-      }
+      pputs(EXPORT_PATH,"27");
+      pputs(GPIO_CLASS_PATH"/gpio27/direction", GPIO_OUT);
+      
+      pputs(EXPORT_PATH,"74");
+      pputs(GPIO_CLASS_PATH"/gpio74/direction", GPIO_OUT);
+      pputs(GPIO_CLASS_PATH"/gpio74/value", GPIO_DOWN); 
       break;
 
     case 11:
@@ -177,14 +171,18 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio5/value", itoa(res));
 
       pputs(EXPORT_PATH,"24");
-      pputs(GPIO_CLASS_PATH"/gpio24/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio24/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio24/direction", GPIO_OUT);
 
-      if (dir == DIR_IN){
-        pputs(EXPORT_PATH,"25");
-        pputs(GPIO_CLASS_PATH"/gpio25/direction", itoa(dir));
-        pputs(GPIO_CLASS_PATH"/gpio25/value", itoa(res));
-      }
+      pputs(EXPORT_PATH,"25");
+      pputs(GPIO_CLASS_PATH"/gpio25/direction", GPIO_OUT);
+      
+      pputs(EXPORT_PATH,"44");
+      pputs(GPIO_CLASS_PATH"/gpio44/direction", GPIO_OUT);
+      pputs(GPIO_CLASS_PATH"/gpio44/value", GPIO_DOWN);
+      
+      pputs(EXPORT_PATH,"72");
+      pputs(GPIO_CLASS_PATH"/gpio72/direction", GPIO_OUT);
+      pputs(GPIO_CLASS_PATH"/gpio72/value", GPIO_DOWN);       
       break;
 
     case 12:
@@ -193,14 +191,10 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio15/value", itoa(res));
 
       pputs(EXPORT_PATH,"42");
-      pputs(GPIO_CLASS_PATH"/gpio42/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio42/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio42/direction", GPIO_OUT);
 
-      if (dir == DIR_IN){
-        pputs(EXPORT_PATH,"43");
-        pputs(GPIO_CLASS_PATH"/gpio43/direction", itoa(dir));
-        pputs(GPIO_CLASS_PATH"/gpio43/value", itoa(res));
-      }
+      pputs(EXPORT_PATH,"43");
+      pputs(GPIO_CLASS_PATH"/gpio43/direction", GPIO_OUT);
       break;
 
     case 13:
@@ -209,14 +203,14 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio7/value", itoa(res));
 
       pputs(EXPORT_PATH,"30");
-      pputs(GPIO_CLASS_PATH"/gpio30/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio30/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio30/direction", GPIO_OUT);
 
-      if (dir == DIR_IN){
-        pputs(EXPORT_PATH,"31");
-        pputs(GPIO_CLASS_PATH"/gpio31/direction", itoa(dir));
-        pputs(GPIO_CLASS_PATH"/gpio31/value", itoa(res));
-      }
+      pputs(EXPORT_PATH,"31");
+      pputs(GPIO_CLASS_PATH"/gpio31/direction", GPIO_OUT);
+      
+      pputs(EXPORT_PATH,"46");
+      pputs(GPIO_CLASS_PATH"/gpio46/direction", GPIO_OUT);
+      pputs(GPIO_CLASS_PATH"/gpio46/value", GPIO_DOWN);      
       break;
 
     case 14:
@@ -225,8 +219,7 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio48/value", itoa(res));
 
       pputs(EXPORT_PATH,"49");
-      pputs(GPIO_CLASS_PATH"/gpio49/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio49/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio49/direction", GPIO_OUT);
       break;
 
     case 15:
@@ -235,8 +228,7 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio50/value", itoa(res));
 
       pputs(EXPORT_PATH,"51");
-      pputs(GPIO_CLASS_PATH"/gpio51/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio51/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio51/direction", GPIO_OUT);
       break;
 
     case 16:
@@ -245,8 +237,7 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio52/value", itoa(res));
 
       pputs(EXPORT_PATH,"53");
-      pputs(GPIO_CLASS_PATH"/gpio53/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio53/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio53/direction", GPIO_OUT);
       break;
 
     case 17:
@@ -255,8 +246,7 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio54/value", itoa(res));
 
       pputs(EXPORT_PATH,"55");
-      pputs(GPIO_CLASS_PATH"/gpio55/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio55/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio55/direction", GPIO_OUT);
       break;
 
     case 18:
@@ -265,8 +255,7 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio56/value", itoa(res));
 
       pputs(EXPORT_PATH,"57");
-      pputs(GPIO_CLASS_PATH"/gpio57/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio57/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio57/direction", GPIO_OUT);
       break;
 
     case 19:
@@ -275,8 +264,7 @@ int set_pin(int pin, int res, int dir) {
       pputs(GPIO_CLASS_PATH"/gpio58/value", itoa(res));
 
       pputs(EXPORT_PATH,"59");
-      pputs(GPIO_CLASS_PATH"/gpio59/direction", itoa(dir));
-      pputs(GPIO_CLASS_PATH"/gpio59/value", itoa(res));
+      pputs(GPIO_CLASS_PATH"/gpio59/direction", GPIO_OUT);
       break;
 
     default :

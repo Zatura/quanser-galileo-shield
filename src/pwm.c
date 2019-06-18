@@ -52,7 +52,8 @@ int set_duty_period(int duty_period) {
 
 int set_duty_cycle(int duty_cycle) {
     if(duty_cycle > 100 || duty_cycle < 0) {
-        return ERROR;
+        //return ERROR;
+        return 1;
     }
     int duty_period = (int) duty_cycle * PWM_DEFAULT_PERIOD / 100;
     return set_duty_period(duty_period);

@@ -18,7 +18,7 @@
  */
 
 static void allow_access_by_user(unsigned int pin, const char *filename) {
-  char path[PATH_MAX];
+  /*char path[PATH_MAX];
   int size = snprintf(path, PATH_MAX, "/sys/devices/virtual/gpio/gpio%u/%s", pin, filename);
 
   if (size >= PATH_MAX) {
@@ -31,11 +31,11 @@ static void allow_access_by_user(unsigned int pin, const char *filename) {
 
   if (chmod(path, S_IRUSR|S_IWUSR) != 0) {
     error(6, errno, "failed to set permissions of %s", path);
-  }
+  }*/
 }
 
 static void write_pin_to_path(const char *path, unsigned int pin) {
-  FILE * out = fopen(path, "w");
+  /*FILE * out = fopen(path, "w");
 
   if (out == NULL) {
     error(3, errno, "could not open %s", path);
@@ -47,11 +47,11 @@ static void write_pin_to_path(const char *path, unsigned int pin) {
 
   if (fclose(out) == EOF) {
     error(4, errno, "could not flush data to %s", path);
-  }
+  }*/
 }
 
 static void set_pullupdown(int pin, int direction) {
-    volatile uint32_t* gpio;
+    /*volatile uint32_t* gpio;
     int fd = open("/dev/mem", O_RDWR|O_SYNC);
     if (fd < 0) {
         fprintf(stderr, "could not open /dev/mem: %s\n", strerror(errno));
@@ -77,5 +77,5 @@ static void set_pullupdown(int pin, int direction) {
     gpio[GPPUDCLK0+BANK(pin)] = 0;
 
     munmap((char*)gpio, BLOCK_SIZE);
-    close(fd);
+    close(fd);*/
 }

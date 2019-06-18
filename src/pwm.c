@@ -18,8 +18,8 @@
  */
 #include "pwm.h"
 #include "gpio.h"
-#include "pputs.c"
-#include "pgets.c"
+#include "pputs.h"
+#include "pgets.h"
 
 int set_pwm_frequency(){
   return 0;

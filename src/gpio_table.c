@@ -21,7 +21,7 @@
 //#include <galileo2io.h>
 
 #include "gpio.h"
-#include "pputs.c"
+#include "pputs.h"
 
 // configure the chosen pin
 // pin: from 0 to 19

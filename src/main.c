@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 #endif
 
 
-    /* Do your magic here :) */
+
 
 
     return EXIT_SUCCESS;

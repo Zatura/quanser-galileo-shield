@@ -46,6 +46,15 @@ write_pin(3, GPIO_HIGH);
 write_pin(2, GPIO_HIGH);
 write_pin(1, GPIO_LOW);
 write_pin(0, GPIO_HIGH);*/
+set_pin(0, GPIO_DOWN, GPIO_IN);
+set_pin(1, GPIO_DOWN, GPIO_IN);
+set_pin(2, GPIO_DOWN, GPIO_IN);
+set_pin(3, GPIO_DOWN, GPIO_IN);
+set_pin(4, GPIO_DOWN, GPIO_IN);
+set_pin(5, GPIO_DOWN, GPIO_IN);
+set_pin(6, GPIO_DOWN, GPIO_IN);
+set_pin(7, GPIO_DOWN, GPIO_IN);
+
 
 while(1){
   char data[2];

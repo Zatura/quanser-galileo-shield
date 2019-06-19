@@ -1,0 +1,30 @@
+/*
+ * ============================================================================
+ *
+ *       Filename:  gpio_table.c
+ *
+ *    Description:  Main file of the project
+ *
+ *        Created:  17/06/2019
+ *       Compiler:  gcc
+ *
+ *         Author:  Matheus Toazza Tura
+ *                  Daniel Maia Cunha
+ *                  Arthur Ribeiro
+ *
+ *   Organization:  UFRGS
+ *
+ * ============================================================================
+ */
+
+#include <string.h>
+//#include <galileo2io.h>
+
+#include "gpio.h"
+#include "pputs.h"
+
+// configure the chosen pin
+// pin: from 0 to 19
+// res: GPIO_LOW or GPIO_HIGH
+// dir: DIR_OUT or DIR_IN
+int set_pin(int pin, char*  res, char* dir);

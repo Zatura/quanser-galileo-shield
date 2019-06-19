@@ -22,6 +22,8 @@
  #define GPIO_UNEXPORT_PATH (GPIO_CLASS_PATH "/unexport")
  #define GPIO_LOW "0"
  #define GPIO_HIGH "1"
+ #define GPIO_PULLDOWN "0"
+ #define GPIO_PULLUP "1"
  #define GPIO_OUT "out"
  #define GPIO_IN "in"
  #define NONE 2

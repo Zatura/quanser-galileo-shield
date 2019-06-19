@@ -20,6 +20,9 @@
 #include <stdlib.h>
 #include "args.h"
 #include "colors.h"
+#include "gpio.h"
+#include "gpio_table.h"
+
 
 int main(int argc, char* argv[])
 {
@@ -36,7 +39,16 @@ int main(int argc, char* argv[])
 #endif
 
 
+/*set_pin(7, char*  res, GPIO_OUT);
 
+set_pin(0, GPIO_DOWN, GPIO_IN);
+set_pin(1, GPIO_DOWN, GPIO_IN);
+set_pin(2, GPIO_DOWN, GPIO_IN);
+set_pin(3, GPIO_DOWN, GPIO_IN);
+set_pin(4, GPIO_DOWN, GPIO_IN);
+set_pin(5, GPIO_DOWN, GPIO_IN);
+set_pin(6, GPIO_DOWN, GPIO_IN);
+set_pin(7, GPIO_DOWN, GPIO_IN);*/
 
 
     return EXIT_SUCCESS;

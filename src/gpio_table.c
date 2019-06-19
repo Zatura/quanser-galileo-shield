@@ -18,10 +18,12 @@
  */
 
 #include <string.h>
+#include <stdio.h>
 //#include <galileo2io.h>
 
 #include "gpio.h"
 #include "pputs.h"
+#include "pgets.h"
 
 // configure the chosen pin
 // pin: from 0 to 19
@@ -290,5 +292,203 @@ int set_pin(int pin, char*  res, char* dir) {
     default:
       break;
   }
-  return 1;
+  return 0;
+}
+
+int write_pin(int pin, char*  value) {
+  switch(pin) {
+    case 0:
+      pputs(GPIO_CLASS_PATH"/gpio11/value", value);
+      break;
+
+    case 1:
+      pputs(GPIO_CLASS_PATH"/gpio12/value", value);
+      break;
+
+    case 2:
+      pputs(GPIO_CLASS_PATH"/gpio13/value", value);
+      break;
+
+    case 3:
+      pputs(GPIO_CLASS_PATH"/gpio14/value", value);
+      break;
+
+    case 4:
+      pputs(GPIO_CLASS_PATH"/gpio6/value", value);
+      break;
+
+    case 5:
+      pputs(GPIO_CLASS_PATH"/gpio0/value", value);
+      break;
+
+    case 6:
+      pputs(GPIO_CLASS_PATH"/gpio1/value", value);
+      break;
+
+    case 7:
+      pputs(GPIO_CLASS_PATH"/gpio38/value", value);
+      break;
+
+    case 8:
+      pputs(GPIO_CLASS_PATH"/gpio40/value", value);
+      break;
+
+    case 9:
+      pputs(GPIO_CLASS_PATH"/gpio4/value", value);
+      break;
+
+    case 10:
+      pputs(GPIO_CLASS_PATH"/gpio10/value", value);
+      break;
+
+    case 11:
+      pputs(GPIO_CLASS_PATH"/gpio5/value", value);
+      break;
+
+    case 12:
+      pputs(GPIO_CLASS_PATH"/gpio15/value", value);
+      break;
+
+    case 13:
+      pputs(GPIO_CLASS_PATH"/gpio7/value", value);
+      break;
+
+    case 14:
+      pputs(GPIO_CLASS_PATH"/gpio48/value", value);
+      break;
+
+    case 15:
+      pputs(GPIO_CLASS_PATH"/gpio50/value", value);
+      break;
+
+    case 16:
+      pputs(GPIO_CLASS_PATH"/gpio52/value", value);
+      break;
+
+    case 17:
+      pputs(GPIO_CLASS_PATH"/gpio54/value", value);
+      break;
+
+    case 18:
+      pputs(GPIO_CLASS_PATH"/gpio56/value", value);
+      break;
+
+    case 19:
+      pputs(GPIO_CLASS_PATH"/gpio58/value", value);
+      break;
+
+    default:
+      break;
+  }
+  return 0;
+}
+
+char* read_pin(int pin) {
+  char str_pin_data[80];
+  char str_path[80];
+  switch(pin) {
+    case 0:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio11/value");
+      pgets(str_pin_data, sizeof(str_pin_data),(char*)str_path);
+      break;
+
+    case 1:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio12/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 2:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio13/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 3:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio14/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 4:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio6/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 5:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio0/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 6:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio1/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 7:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio38/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 8:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio40/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 9:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio4/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 10:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio10/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 11:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio5/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 12:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio15/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 13:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio7/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 14:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio48/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 15:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio50/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 16:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio52/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 17:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio54/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 18:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio56/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    case 19:
+      snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio58/value");
+      pgets(str_pin_data, sizeof(str_pin_data),str_path);
+      break;
+
+    default:
+      break;
+  }
+  return str_pin_data;
 }

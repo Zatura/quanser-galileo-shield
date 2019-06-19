@@ -296,85 +296,87 @@ int set_pin(int pin, char*  res, char* dir) {
 }
 
 int write_pin(int pin, char*  value) {
+  char data[2];
+  strcpy(data,value);
   switch(pin) {
     case 0:
-      pputs(GPIO_CLASS_PATH"/gpio11/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio11/value", data);
       break;
 
     case 1:
-      pputs(GPIO_CLASS_PATH"/gpio12/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio12/value", data);
       break;
 
     case 2:
-      pputs(GPIO_CLASS_PATH"/gpio13/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio13/value", data);
       break;
 
     case 3:
-      pputs(GPIO_CLASS_PATH"/gpio14/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio14/value", data);
       break;
 
     case 4:
-      pputs(GPIO_CLASS_PATH"/gpio6/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio6/value", data);
       break;
 
     case 5:
-      pputs(GPIO_CLASS_PATH"/gpio0/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio0/value", data);
       break;
 
     case 6:
-      pputs(GPIO_CLASS_PATH"/gpio1/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio1/value", data);
       break;
 
     case 7:
-      pputs(GPIO_CLASS_PATH"/gpio38/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio38/value", data);
       break;
 
     case 8:
-      pputs(GPIO_CLASS_PATH"/gpio40/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio40/value", data);
       break;
 
     case 9:
-      pputs(GPIO_CLASS_PATH"/gpio4/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio4/value", data);
       break;
 
     case 10:
-      pputs(GPIO_CLASS_PATH"/gpio10/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio10/value", data);
       break;
 
     case 11:
-      pputs(GPIO_CLASS_PATH"/gpio5/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio5/value", data);
       break;
 
     case 12:
-      pputs(GPIO_CLASS_PATH"/gpio15/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio15/value", data);
       break;
 
     case 13:
-      pputs(GPIO_CLASS_PATH"/gpio7/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio7/value", data);
       break;
 
     case 14:
-      pputs(GPIO_CLASS_PATH"/gpio48/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio48/value", data);
       break;
 
     case 15:
-      pputs(GPIO_CLASS_PATH"/gpio50/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio50/value", data);
       break;
 
     case 16:
-      pputs(GPIO_CLASS_PATH"/gpio52/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio52/value", data);
       break;
 
     case 17:
-      pputs(GPIO_CLASS_PATH"/gpio54/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio54/value", data);
       break;
 
     case 18:
-      pputs(GPIO_CLASS_PATH"/gpio56/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio56/value", data);
       break;
 
     case 19:
-      pputs(GPIO_CLASS_PATH"/gpio58/value", value);
+      pputs(GPIO_CLASS_PATH"/gpio58/value", data);
       break;
 
     default:
@@ -383,9 +385,8 @@ int write_pin(int pin, char*  value) {
   return 0;
 }
 
-char* read_pin(int pin) {
-  char str_pin_data[80];
-  char str_path[80];
+char* read_pin(int pin, char* str_pin_data) {
+  char str_path[150];
   switch(pin) {
     case 0:
       snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio11/value");

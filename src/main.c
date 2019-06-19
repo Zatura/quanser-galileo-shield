@@ -38,7 +38,39 @@ int main(int argc, char* argv[])
     fprintf(stdout, BROWN "filename: %s\n" NO_COLOR, options.file_name);
 #endif
 
+/*write_pin(7, GPIO_LOW);
+write_pin(6, GPIO_HIGH);
+write_pin(5, GPIO_HIGH);
+write_pin(4, GPIO_LOW);
+write_pin(3, GPIO_HIGH);
+write_pin(2, GPIO_HIGH);
+write_pin(1, GPIO_LOW);
+write_pin(0, GPIO_HIGH);*/
 
+while(1){
+  char data[2];
+  int decode_value = 0;
+  read_pin(7, data);
+  decode_value += atoi(data);
+  read_pin(6, data);
+  decode_value += atoi(data)*2;
+  read_pin(5, data);
+  decode_value += atoi(data)*4;
+  read_pin(4, data);
+  decode_value += atoi(data)*8;
+  read_pin(3, data);
+  decode_value += atoi(data)*16;
+  read_pin(2, data);
+  decode_value += atoi(data)*32;
+  read_pin(1, data);
+  decode_value += atoi(data)*64;
+  read_pin(0, data);
+  decode_value += atoi(data)*128;
+  printf("\n");
+  printf("%d",decode_value);
+  printf("\n");
+  printf("\e[1;1H\e[2J");
+}
 /*set_pin(7, char*  res, GPIO_OUT);
 
 set_pin(0, GPIO_DOWN, GPIO_IN);

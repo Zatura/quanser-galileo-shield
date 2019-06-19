@@ -29,4 +29,4 @@
 // dir: DIR_OUT or DIR_IN
 int set_pin(int pin, char*  res, char* dir);
 int write_pin(int pin, char*  value);
-char* read_pin(int pin);
+char* read_pin(int pin, char* str_pin_data);

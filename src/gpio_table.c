@@ -480,3 +480,15 @@ char* read_pin(int pin, char* str_pin_data) {
   }
   return str_pin_data;
 }
+
+// initialize gpio pins
+void initialize_gpio() {
+	set_pin(0, GPIO_LOW, GPIO_IN);
+	set_pin(1, GPIO_LOW, GPIO_IN);
+	set_pin(2, GPIO_LOW, GPIO_IN);
+	set_pin(3, GPIO_LOW, GPIO_IN);
+	set_pin(4, GPIO_LOW, GPIO_IN);
+	set_pin(5, GPIO_LOW, GPIO_IN);
+	set_pin(6, GPIO_LOW, GPIO_IN);
+	set_pin(7, GPIO_LOW, GPIO_IN);
+}

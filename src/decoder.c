@@ -29,16 +29,16 @@
 int read_decoder() {
   char data[2];
   int decode_value = 0;
-  struct timespec = sleep_time;
-	
+  struct timespec sleep_time;
+
   sleep_time.tv_sec = 0;
   sleep_time.tv_nsec = 90; //1000 ns = 1 us
 
   // Set OE and SEL pin into HIGH BYTE read state
-  set_pin(OE_PIN, GPIO_LOW, GPIO_IN);	
-  set_pin(SEL_PIN, GPIO_LOW, GPIO_IN);	
-  nanosleep(&slptm,NULL);
-	
+  set_pin(OE_PIN, GPIO_LOW, GPIO_IN);
+  set_pin(SEL_PIN, GPIO_LOW, GPIO_IN);
+  nanosleep(&sleep_time,NULL);
+
   read_pin(D7_PIN, data);
   decode_value += atoi(data)*256;
   read_pin(D6_PIN, data);
@@ -54,11 +54,11 @@ int read_decoder() {
   read_pin(D1_PIN, data);
   decode_value += atoi(data)*16384;
   read_pin(D0_PIN, data);
-  decode_value += atoi(data)*32768;	
+  decode_value += atoi(data)*32768;
 
-  // Set OE and SEL pin into LOW BYTE read state	
-  set_pin(SEL_PIN, GPIO_HIGH, GPIO_IN);	
-  nanosleep(&slptm,NULL);
+  // Set OE and SEL pin into LOW BYTE read state
+  set_pin(SEL_PIN, GPIO_HIGH, GPIO_IN);
+  nanosleep(&sleep_time,NULL);
 
   read_pin(D7_PIN, data);
   decode_value += atoi(data);
@@ -76,6 +76,6 @@ int read_decoder() {
   decode_value += atoi(data)*64;
   read_pin(D0_PIN, data);
   decode_value += atoi(data)*128;
-	
+
   set_pin(OE_PIN, GPIO_HIGH, GPIO_IN);
 }

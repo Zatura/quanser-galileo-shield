@@ -24,11 +24,13 @@
 #include "gpio_table.h"
 #include "decoder.h"
 
+
 int main(int argc, char* argv[])
 {
     /* Read command line options */
     options_t options;
     options_parser(argc, argv, &options);
+    int decoder_reg = 0;
 
 #ifdef DEBUG
     fprintf(stdout, BLUE "Command line options:\n" NO_COLOR);
@@ -46,32 +48,21 @@ write_pin(3, GPIO_HIGH);
 write_pin(2, GPIO_HIGH);
 write_pin(1, GPIO_LOW);
 write_pin(0, GPIO_HIGH);*/
+set_pin(0, GPIO_LOW, GPIO_IN);
+set_pin(1, GPIO_LOW, GPIO_IN);
+set_pin(2, GPIO_LOW, GPIO_IN);
+set_pin(3, GPIO_LOW, GPIO_IN);
+set_pin(4, GPIO_LOW, GPIO_IN);
+set_pin(5, GPIO_LOW, GPIO_IN);
+set_pin(6, GPIO_LOW, GPIO_IN);
+set_pin(7, GPIO_LOW, GPIO_IN);
 
-	initialize_gpio();
 
-	int integral = 0, derivative = 0, error = 0, last_error = 0, target_position = 0, pwm;
-	int kp = 1, ki = 1, kd = 1;
-	while(1){
-		// Get the current position from decoder
-		int current_position = read_decoder();
-			
-		// Calculate the error
-		error = target_position - current_position;
-		
-		// Calculate the integral
-		integral = integral * error;
-		
-		// Calculate the derivative
-		derivative = error - last_error;
-		
-		pwm = kp * error * ki * integral * kd * derivative;		
-		
-		printf("\n");
-		printf("%d", current_position);
-		printf("\n");
-		printf("\e[1;1H\e[2J");
-	}
-
+while(1){
+  decoder_reg = read_decoder();
+  printf("%d", decoder_reg);
+  if system("@cls||clear");
+}
 /*set_pin(7, char*  res, GPIO_OUT);
 
 set_pin(0, GPIO_DOWN, GPIO_IN);

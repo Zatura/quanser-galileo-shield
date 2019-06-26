@@ -18,11 +18,9 @@
  */
 #include <string.h>
 #include <stdio.h>
-#include "gpio_table.h"
-#include "gpio.h"
 #include <time.h>
 //#include <galileo2io.h>
-
+#include "gpio_table.h"
 #include "decoder.h"
 
 // read decoder_value

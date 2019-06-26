@@ -20,8 +20,17 @@
 #include <string.h>
 //#include <galileo2io.h>
 
-#include "gpio.h"
-#include "pputs.h"
+#define PWM_CLASS_PATH "/sys/class/pwm/pwmchip0"
+#define GPIO_CLASS_PATH "/sys/class/gpio"
+#define GPIO_EXPORT_PATH (GPIO_CLASS_PATH "/export")
+#define GPIO_UNEXPORT_PATH (GPIO_CLASS_PATH "/unexport")
+#define GPIO_LOW "0\0"
+#define GPIO_HIGH "1\0"
+#define GPIO_PULLDOWN "0\0"
+#define GPIO_PULLUP "1\0"
+#define GPIO_OUT "out\0"
+#define GPIO_IN "in\0"
+#define NONE 2
 
 #define D0_PIN 7
 #define D1_PIN 6

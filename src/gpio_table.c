@@ -21,7 +21,6 @@
 #include <stdio.h>
 //#include <galileo2io.h>
 
-#include "gpio.h"
 #include "pputs.h"
 #include "pgets.h"
 

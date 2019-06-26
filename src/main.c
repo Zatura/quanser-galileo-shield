@@ -18,6 +18,7 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "args.h"
 #include "colors.h"
 #include "gpio.h"
@@ -31,6 +32,7 @@ int main(int argc, char* argv[])
     options_t options;
     options_parser(argc, argv, &options);
     int decoder_reg = 0;
+    char button_clicked;
 
 #ifdef DEBUG
     fprintf(stdout, BLUE "Command line options:\n" NO_COLOR);
@@ -57,11 +59,15 @@ set_pin(5, GPIO_LOW, GPIO_IN);
 set_pin(6, GPIO_LOW, GPIO_IN);
 set_pin(7, GPIO_LOW, GPIO_IN);
 
-
 while(1){
   decoder_reg = read_decoder();
-  printf("%d", decoder_reg);
-  if system("@cls||clear");
+  printf("%d\n", decoder_reg);
+  sleep(0.1);
+  system("clear");
+  //scanf("%c", &button_clicked);
+  //if (button_clicked == 'q')
+//    break;
+
 }
 /*set_pin(7, char*  res, GPIO_OUT);
 

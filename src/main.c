@@ -62,8 +62,7 @@ set_pin(7, GPIO_LOW, GPIO_IN);
 while(1){
   decoder_reg = read_decoder();
   printf("%d\n", decoder_reg);
-  sleep(0.1);
-  system("clear");
+  //sleep(0.1);
   //scanf("%c", &button_clicked);
   //if (button_clicked == 'q')
 //    break;

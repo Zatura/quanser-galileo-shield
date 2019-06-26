@@ -41,8 +41,8 @@
 #define D6_PIN 1
 #define D7_PIN 0
 
-#define OE_PIN 8
-#define SEL_PIN 9
+#define OE_PIN 9
+#define SEL_PIN 10
 
 // configure the chosen pin
 // pin: from 0 to 19

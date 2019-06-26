@@ -32,15 +32,16 @@
 #define GPIO_IN "in\0"
 #define NONE 2
 
-#define D0_PIN 7
-#define D1_PIN 6
-#define D2_PIN 5
-#define D3_PIN 4
-#define D4_PIN 3
-#define D5_PIN 2
-#define D6_PIN 1
-#define D7_PIN 0
+#define D0_PIN 0
+#define D1_PIN 1
+#define D2_PIN 2
+#define D3_PIN 3
+#define D4_PIN 4
+#define D5_PIN 5
+#define D6_PIN 6
+#define D7_PIN 7
 
+#define RST_PIN 8
 #define OE_PIN 9
 #define SEL_PIN 10
 

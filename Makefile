@@ -35,6 +35,9 @@ OS := $(shell uname -s)
 # Default shell
 SHELL := bash
 
+GALILEO=192.168.0.11
+USER=root
+
 # Color prefix for Linux distributions
 COLOR_PREFIX := e
 
@@ -141,6 +144,10 @@ $(LIBDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@echo -en "$(BROWN)CC $(END_COLOR)";
 	$(CC) -c $^ -o $@ $(DEBUG) $(CFLAGS) $(LIBS)
 
+.PHONY: init_script
+
+init_script: init_qmotion
+	scp $^ $(USER)@$(GALILEO)
 
 # Rule for run valgrind tool
 valgrind:

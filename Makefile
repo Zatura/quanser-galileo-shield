@@ -1,5 +1,5 @@
-TARGET=main.a
-SRCS=main.c gpio_table.c decoder.c
+TARGET=qmotion.a
+SRCS=src/main.c src/gpio_table.c src/decoder.c
 
 GALILEO=galileo1
 USER=root
@@ -23,9 +23,9 @@ $(TARGET): $(SRCS:.c=.o)
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-#.PHONY: init_script
+.PHONY: init_script
 
-init_script: main
+init_script: init_qmotion
 	scp $^ $(USER)@$(GALILEO):/etc/init.d/
 
 -include $(SRCS:.c=.d)

@@ -31,6 +31,9 @@
 #define GPIO_OUT "out\0"
 #define GPIO_IN "in\0"
 #define NONE 2
+//#define RESOLUTION 341.2
+#define RESOLUTION 1365 //PPR
+#define QNSR_RESOLUTION 4096 //counts per quadrature
 
 #define D0_PIN 0
 #define D1_PIN 1

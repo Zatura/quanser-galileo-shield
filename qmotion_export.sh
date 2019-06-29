@@ -21,7 +21,7 @@ case "$1" in
       echo -n "in" > /sys/class/gpio/gpio11/direction
 
   	chgrp gpio /sys/class/gpio/gpio11/value
-  	chmod g+w  /sys/class/gpio/gpio11/value
+  	chmod g+r  /sys/class/gpio/gpio11/value
 
   	if [ ! -d /sys/class/gpio/gpio32 ] ; then
   	    echo -n "32" > /sys/class/gpio/export
@@ -45,7 +45,7 @@ case "$1" in
       echo -n "in" > /sys/class/gpio/gpio12/direction
 
   	chgrp gpio /sys/class/gpio/gpio12/value
-  	chmod g+w  /sys/class/gpio/gpio12/value
+  	chmod g+r  /sys/class/gpio/gpio12/value
 
   	if [ ! -d /sys/class/gpio/gpio28 ] ; then
   	    echo -n "28" > /sys/class/gpio/export
@@ -73,7 +73,7 @@ case "$1" in
   	fi
       echo -n "in" > /sys/class/gpio/gpio13/direction
   	chgrp gpio /sys/class/gpio/gpio13/value
-  	chmod g+w  /sys/class/gpio/gpio13/value
+  	chmod g+r  /sys/class/gpio/gpio13/value
 
   	if [ ! -d /sys/class/gpio/gpio34 ] ; then
   	    echo -n "34" > /sys/class/gpio/export
@@ -101,7 +101,7 @@ case "$1" in
   	fi
       echo -n "in" > /sys/class/gpio/gpio14/direction
   	chgrp gpio /sys/class/gpio/gpio14/value
-  	chmod g+w  /sys/class/gpio/gpio14/value
+  	chmod g+r  /sys/class/gpio/gpio14/value
 
   	if [ ! -d /sys/class/gpio/gpio16 ] ; then
   	    echo -n "16" > /sys/class/gpio/export
@@ -134,7 +134,7 @@ case "$1" in
   	fi
       echo -n "in" > /sys/class/gpio/gpio6/direction
   	chgrp gpio /sys/class/gpio/gpio6/value
-  	chmod g+w  /sys/class/gpio/gpio6/value
+  	chmod g+r  /sys/class/gpio/gpio6/value
 
   	if [ ! -d /sys/class/gpio/gpio36 ] ; then
   	    echo -n "36" > /sys/class/gpio/export
@@ -157,7 +157,7 @@ case "$1" in
   	fi
       echo -n "in" > /sys/class/gpio/gpio0/direction
   	chgrp gpio /sys/class/gpio/gpio0/value
-  	chmod g+w  /sys/class/gpio/gpio0/value
+  	chmod g+r  /sys/class/gpio/gpio0/value
 
   	if [ ! -d /sys/class/gpio/gpio18 ] ; then
   	    echo -n "18" > /sys/class/gpio/export
@@ -185,7 +185,7 @@ case "$1" in
   	fi
       echo -n "in" > /sys/class/gpio/gpio1/direction
   	chgrp gpio /sys/class/gpio/gpio1/value
-  	chmod g+w  /sys/class/gpio/gpio1/value
+  	chmod g+r  /sys/class/gpio/gpio1/value
 
   	if [ ! -d /sys/class/gpio/gpio20 ] ; then
   	    echo -n "20" > /sys/class/gpio/export
@@ -213,7 +213,7 @@ case "$1" in
   	fi
       echo -n "in" > /sys/class/gpio/gpio38/direction
   	chgrp gpio /sys/class/gpio/gpio38/value
-  	chmod g+w  /sys/class/gpio/gpio38/value
+  	chmod g+r  /sys/class/gpio/gpio38/value
 
   	if [ ! -d /sys/class/gpio/gpio39 ] ; then
   	    echo -n "39" > /sys/class/gpio/export
@@ -324,7 +324,8 @@ case "$1" in
   	fi
     echo -n "out" > /sys/class/gpio/gpio24/direction
 
-    if [ ! -d /sys/class/gpio/gpio25 ] ; then
+    if [ ! -d /sys/class/gpio/gpio25
+     ] ; then
         echo -n "25" > /sys/class/gpio/export
     fi
 
@@ -337,11 +338,11 @@ case "$1" in
     echo '500000' > /sys/class/pwm/pwmchip0/pwm9/duty_cycle
 
   	chgrp pwm /sys/class/pwm/pwmchip0/device/pwm_period
-  	chmod g+w /sys/class/pwm/pwmchip0/device/pwm_period
+  	chmod g+rw /sys/class/pwm/pwmchip0/device/pwm_period
   	chgrp pwm /sys/class/pwm/pwmchip0/pwm9/duty_cycle
-  	chmod g+w /sys/class/pwm/pwmchip0/pwm9/duty_cycle
+  	chmod g+rw /sys/class/pwm/pwmchip0/pwm9/duty_cycle
   	chgrp pwm /sys/class/pwm/pwmchip0/pwm9/enable
-  	chmod g+w /sys/class/pwm/pwmchip0/pwm9/enable
+  	chmod g+rw /sys/class/pwm/pwmchip0/pwm9/enable
   ;;
   stop)
     echo -n "11" > /sys/class/gpio/unexport

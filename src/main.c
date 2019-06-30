@@ -31,8 +31,6 @@ int main(int argc, char* argv[])
     /* Read command line options */
     options_t options;
     options_parser(argc, argv, &options);
-    int decoder_reg = 0;
-    int result = 0;
 #ifdef DEBUG
     fprintf(stdout, BLUE "Command line options:\n" NO_COLOR);
     fprintf(stdout, BROWN "help: %d\n" NO_COLOR, options.help);
@@ -42,8 +40,10 @@ int main(int argc, char* argv[])
 #endif
 
 //write_pin(RST_PIN, GPIO_HIGH);
-
-while(1){
+//int pwm_period = get_pwm_period();
+//int duty_period = get_duty_period();
+//puts(duty_period);
+/*while(1){
     decoder_reg = read_decoder();
     printf("\n");
     printf("DECODER_VALUE: ");
@@ -53,6 +53,6 @@ while(1){
     if(result){
       puts("system clear fail");
     }
-}
+}*/
     return EXIT_SUCCESS;
 }

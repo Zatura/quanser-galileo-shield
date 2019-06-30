@@ -16,7 +16,7 @@
  *
  * ============================================================================
  */
- 
+
 #ifndef ARGS_H
 #define ARGS_H
 
@@ -32,6 +32,7 @@ struct options
     bool help;
     bool version;
     bool use_colors;
+    bool move;
     char file_name[FILE_NAME_SIZE];
 };
 

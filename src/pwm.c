@@ -21,36 +21,39 @@
 #include "pputs.h"
 #include "pgets.h"
 
-int set_pwm_frequency(){
+int get_pwm_frequency(){
+  //TODO
   return 0;
 }
 
-int get_pwm_frequency(){
+int set_pwm_frequency(int freq){
+  //TODO
   return 0;
 }
 
 int get_pwm_period() {
-  /*
-    static char period_string[32];
-    if (pgets(period_string, sizeof(period_string), "/sys/class/pwm/pwmchip0/device/pwm_period") < 0) {
-        printf("\nReturning default PWM period: %d", PWM_DEFAULT_PERIOD);
-        return PWM_DEFAULT_PERIOD;
-    }
-    return (int)period_string;
-    */
-    return 1;
+  char str_data[20] = "0123456789123";
+  puts(str_data);
+  pgets((char*)str_data, sizeof(str_data),PWM_CLASS_PATH"/device/pwm_period");
+  return atoi(str_data);
 }
 
 int set_pwm_period(int period) {
     char period_string[32];
-    snprintf(period_string, sizeof period_string, "%d", period);
-    return pputs(PWM_CLASS_PATH"device/pwm_period", period_string);
+    snprintf(period_string, sizeof(period_string), "%d", period);
+    return pputs(PWM_CLASS_PATH"/device/pwm_period", period_string);
+}
+
+int get_duty_period() {
+  char str_data[20];
+  pgets(str_data, sizeof(str_data),PWM_CLASS_PATH"/pwm9/duty_cycle");
+  return atoi(str_data);
 }
 
 int set_duty_period(int duty_period) {
     char duty_period_string[32];
     snprintf(duty_period_string, sizeof duty_period_string, "%d", duty_period);
-    return pputs(PWM_CLASS_PATH"pwm11 /duty_cycle", duty_period_string);
+    return pputs(PWM_CLASS_PATH"/pwm9/duty_cycle", duty_period_string);
 }
 
 int set_duty_cycle(int duty_cycle) {
@@ -63,9 +66,9 @@ int set_duty_cycle(int duty_cycle) {
 }
 
 int enable_pwm() {
-    return pputs(PWM_CLASS_PATH"pwm11/enable", "1");
+    return pputs(PWM_CLASS_PATH"/pwm9/enable", "1");
 }
 
 int disable_pwm() {
-    return pputs(PWM_CLASS_PATH"pwm11/enable", "0");
+    return pputs(PWM_CLASS_PATH"/pwm9/enable", "0");
 }

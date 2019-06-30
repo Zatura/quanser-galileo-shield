@@ -28,15 +28,14 @@
 
 //#include <galileo2io.h>
 
-char *pgets(char *s,int size,const char path[])
+char* pgets(char* s,int size,const char path[])
 {
 	int fd;
-	int result = 0;
-
-	if((fd=open(path,O_RDONLY)) ==-1) return NULL;
+	int result;
+	if((fd=open(path,O_RDONLY)) == -1) return NULL;
 	result = read(fd,s,size);
 	if(result)
-		printf("error when opening file");
+		printf("error when reading file\n");
 	close(fd);
 	return s;
 }

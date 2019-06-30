@@ -26,10 +26,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 //#include "../../lib/galileo2io.h"
-
-int set_pwm_frequency();
-
 int get_pwm_frequency();
+
+int set_pwm_frequency(int freq);
 
 /** Get period(ns) in the PWM_11 (IO10).
   * @param:  {void}
@@ -43,17 +42,23 @@ int get_pwm_period();
   */
 int set_pwm_period(int period);
 
-/** Set duty cycle (%) in the PWM_11 (IO10).
-  * @param:  {int} duty cycle.
-  * @return: {int} status of the operation.
+/** Get duty period (ns) in the PWM_11 (IO10).
+  * @param:  {void}.
+  * @return: {int} period in nanoseconds.
   */
-int set_duty_cycle(int duty_cycle);
+int get_duty_period();
 
 /** Set duty period (ns) in the PWM_11 (IO10).
   * @param:  {int} duty cycle.
   * @return: {int} status of the operation.
   */
 int set_duty_period(int duty_period);
+
+/** Set duty cycle (%) in the PWM_11 (IO10).
+  * @param:  {int} duty cycle.
+  * @return: {int} status of the operation.
+  */
+int set_duty_cycle(int duty_cycle);
 
 /** Enable the GalileoGen2's PWM_11 (IO10).
   * @param:  {void}.

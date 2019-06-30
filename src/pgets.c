@@ -24,16 +24,19 @@
 
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdio.h>
 
 //#include <galileo2io.h>
 
 char *pgets(char *s,int size,const char path[])
 {
 	int fd;
-	int success;
+	int result = 0;
 
 	if((fd=open(path,O_RDONLY)) ==-1) return NULL;
-	success = read(fd,s,size);
+	result = read(fd,s,size);
+	if(result)
+		printf("error when opening file");
 	close(fd);
 	return s;
 }

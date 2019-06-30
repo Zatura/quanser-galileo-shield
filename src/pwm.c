@@ -16,8 +16,8 @@
  *
  * ============================================================================
  */
+#include "gpio_table.h"
 #include "pwm.h"
-#include "gpio.h"
 #include "pputs.h"
 #include "pgets.h"
 

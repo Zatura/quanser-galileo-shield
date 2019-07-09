@@ -25,26 +25,28 @@ int move_to_angle(float angle){
   clock_t last, now;
   float current_position = 0;
   float error = 0;
-  set_gains(pid, 1, 0, 0);
-  last = clock();
-  current_position = 0;
-  int print_count = 0;
-  double time_elapsed = 0;
+  int result = load_pid(&pid->kp, &pid->ki, &pid->kd);
+  printf("res %d\n",result);
+  if (result == 0){
+    last = clock();
+    current_position = 0;
+    int print_count = 0;
+    double time_elapsed = 0;
 
-  while(1){
-    current_position = 360*read_decoder()/QNSR_RESOLUTION;
-    error = angle - current_position;
-    if (print_count % 10 == 0)
-      printf("%d: ERR %f | POS %f | VOL %f\n",print_count, error, current_position, pid->voltage);
-    now = clock();
-    time_elapsed = now*2.8/CLOCKS_PER_SEC;
-    update_voltage(pid, error, ((double)(now-last))/CLOCKS_PER_SEC);
-    move(pid->voltage);
-    last = now;
-    print_count++;
-  }
-  return 0;
-
+    while(1){
+      current_position = 360*read_decoder()/QNSR_RESOLUTION;
+      error = angle - current_position;
+      if (print_count % 100 == 0)
+       printf("%d: ERR %f | POS %f | VOL %f\n",print_count, error, current_position, pid->voltage);
+      now = clock();
+      time_elapsed = now*2.8/CLOCKS_PER_SEC;
+      update_voltage(pid, error, ((double)(now-last))/CLOCKS_PER_SEC);
+      move(pid->voltage);
+      last = now;
+      print_count++;
+    }
+    return 0;
+  };
 }
 
 void stop(){

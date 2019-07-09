@@ -28,6 +28,7 @@
 // read decoder_value
 int read_decoder() {
   char data[2];
+  char reg[8];
   int decode_value = 0;
   struct timespec sleep_time;
 
@@ -41,28 +42,28 @@ int read_decoder() {
   nanosleep(&sleep_time,NULL);
 
   read_pin(D0_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*32768;
   read_pin(D1_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*16384;
   read_pin(D5_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*1024;
   read_pin(D2_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*8192;
   read_pin(D3_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*4096;
   read_pin(D4_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*2048;
   read_pin(D6_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*512;
   read_pin(D7_PIN, data);
-  printf("%c   ",data[0]);
+  // printf("%c   ",data[0]);
   decode_value += atoi(data)*256;
 
   // Set OE and SEL pin into LOW BYTE read state
@@ -70,28 +71,28 @@ int read_decoder() {
   nanosleep(&sleep_time,NULL);
 
   read_pin(D0_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*128;
   read_pin(D1_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*64;
   read_pin(D2_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*32;
   read_pin(D3_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*16;
   read_pin(D4_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*8;
   read_pin(D5_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*4;
   read_pin(D6_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data)*2;
   read_pin(D7_PIN, data);
-  printf("%c ",data[0]);
+  // printf("%c ",data[0]);
   decode_value += atoi(data);
 
   write_pin(OE_PIN, GPIO_HIGH);

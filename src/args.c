@@ -26,6 +26,7 @@
 #include "args.h"
 #include "colors.h"
 #include "motion.h"
+#include "control.h"
 #include "limit_switch.h"
 #include "decoder.h"
 #include "gpio_table.h"
@@ -85,6 +86,11 @@ void switch_options(int arg, char* argv[], options_t* options)
             }
             exit(EXIT_SUCCESS);
 
+        case 'p':
+            options->pid = true;
+            save_pid(atof(argv[2]), atof(argv[3]), atof(argv[4]));
+            exit(EXIT_SUCCESS);
+
         case 0:
             options->use_colors = false;
             break;
@@ -131,6 +137,7 @@ void options_parser(int argc, char* argv[], options_t* options)
         {"version", no_argument, 0, 'v'},
         {"move", no_argument, 0, 'm'},
         {"read", no_argument, 0, 'r'},
+        {"pid", no_argument, 0, 'p'},
         {"frequency", no_argument, 0, 'f'},
         {"no-colors", no_argument, 0, 0},
     };
@@ -138,7 +145,7 @@ void options_parser(int argc, char* argv[], options_t* options)
     while (true) {
 
         int option_index = 0;
-        arg = getopt_long(argc, argv, "hvmrft:", long_options, &option_index);
+        arg = getopt_long(argc, argv, "hvmrpft:", long_options, &option_index);
 
         /* End of the options? */
         if (arg == -1) break;

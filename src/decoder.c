@@ -28,7 +28,6 @@
 // read decoder_value
 int read_decoder() {
   char data[2];
-  char reg[8];
   int decode_value = 0;
   struct timespec sleep_time;
 
@@ -102,6 +101,7 @@ int read_decoder() {
 // reset decoder
 void reset_decoder() {
     write_pin(RST_PIN, GPIO_LOW);
-    usleep(10);
+    usleep(100);
     write_pin(RST_PIN, GPIO_HIGH);
+    printf("Decoder register reseted!\n");
 }

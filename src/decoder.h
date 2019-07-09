@@ -19,3 +19,4 @@
 int read_decoder();
 int read_low_byte();
 void reset_oe();
+void reset_decoder();

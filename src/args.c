@@ -77,8 +77,8 @@ void switch_options(int arg, char* argv[], options_t* options)
             printf("stop\n");
             exit(EXIT_SUCCESS);
 
-        case 'r':
-            options->read = true;
+        case 'd':
+            options->decoder = true;
             while(1){
                 lmt_right = read_limit_switch_right();
                 lmt_left = read_limit_switch_left();
@@ -98,6 +98,13 @@ void switch_options(int arg, char* argv[], options_t* options)
             options->pid = true;
             save_pid(atof(argv[2]), atof(argv[3]), atof(argv[4]));
             exit(EXIT_SUCCESS);
+
+        case 'r':
+            options->reset = true;
+            reset_decoder();
+            exit(EXIT_SUCCESS);
+
+
 
         case 0:
             options->use_colors = false;
@@ -145,7 +152,8 @@ void options_parser(int argc, char* argv[], options_t* options)
         {"version", no_argument, 0, 'v'},
         {"move", no_argument, 0, 'm'},
         {"pid", no_argument, 0, 'p'},
-        {"read", no_argument, 0, 'r'},
+        {"reset", no_argument, 0, 'r'},
+        {"decoder", no_argument, 0, 'd'},
         {"target", no_argument, 0, 't'},
         {"frequency", no_argument, 0, 'f'},
         {"no-colors", no_argument, 0, 0},
@@ -154,7 +162,7 @@ void options_parser(int argc, char* argv[], options_t* options)
     while (true) {
 
         int option_index = 0;
-        arg = getopt_long(argc, argv, "hvmrpft:", long_options, &option_index);
+        arg = getopt_long(argc, argv, "hvmrdpft:", long_options, &option_index);
 
         /* End of the options? */
         if (arg == -1) break;

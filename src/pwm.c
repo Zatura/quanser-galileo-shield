@@ -27,6 +27,7 @@ int get_pwm_frequency(){
 }
 
 int set_pwm_frequency(int freq){
+  printf("not implemented!! freq %d\n",freq);
   //TODO
   return 0;
 }

@@ -27,5 +27,5 @@
 
 void calibrate() {
     reset_decoder();
-    set_duty_cycle(get_pwm_period());
+    //set_duty_cycle(get_pwm_period());
 }

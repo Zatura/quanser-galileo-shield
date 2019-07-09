@@ -13,5 +13,5 @@ struct _pid_control{
 };
 typedef struct _pid_control pid_control;
 
-void update_voltage(pid_control* pid, float error, float utime);
+void update_voltage(pid_control* pid, float error, double utime);
 void set_gains(pid_control* pid, float kp, float ki, float kd);

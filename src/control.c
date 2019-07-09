@@ -6,9 +6,9 @@ void set_gains(pid_control* pid, float kp, float ki, float kd){
   pid->ki = ki;
 }
 
-void update_voltage(pid_control* pid, float error, float utime){
+void update_voltage(pid_control* pid, float error, double utime){
+  pid->D_error = (pid->P_error - error)/utime;
   pid->P_error = error;
-  pid->D_error = (error - pid->D_error)/utime;
   pid->I_error += error;
   pid->voltage = 27*(pid->kp*pid->P_error + pid->kd*pid->D_error + pid->ki*pid->I_error)/180;
 }

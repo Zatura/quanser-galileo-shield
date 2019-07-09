@@ -57,7 +57,7 @@ void switch_options(int arg, char* argv[], options_t* options)
 
         case 'm':
             options->move = true;
-            move(atof(argv[2]), atoi(argv[3]));
+            move_to_angle(atof(argv[2]));
             exit(EXIT_SUCCESS);
 
         case 0:

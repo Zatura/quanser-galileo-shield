@@ -48,6 +48,7 @@
 #define RST_PIN 8
 #define OE_PIN 9
 #define SEL_PIN 10
+#define SD_PIN 12
 
 #define LIMIT_SWITCH_RIGHT 11
 #define LIMIT_SWITCH_LEFT 12

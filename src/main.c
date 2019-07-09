@@ -49,10 +49,12 @@ int main(int argc, char* argv[])
 //int duty_period = get_duty_period();
 //puts(duty_period);
 
-/*  write_pin(RST_PIN, GPIO_LOW);
+  write_pin(RST_PIN, GPIO_LOW);
   write_pin(SD_PIN, GPIO_HIGH);
   write_pin(RST_PIN, GPIO_HIGH);
-    while(1){
+
+  //move_to_angle(90);
+/*    while(1){
         if(read_limit_switch()) {
 
         }

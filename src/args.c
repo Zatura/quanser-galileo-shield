@@ -20,10 +20,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+#include <unistd.h>
 #include "messages.h"
 #include "args.h"
 #include "colors.h"
 #include "motion.h"
+#include "limit_switch.h"
+#include "decoder.h"
 
 /*
  * Sets the default options
@@ -41,6 +45,9 @@ static void set_default_options(options_t* options)
  */
 void switch_options(int arg, char* argv[], options_t* options)
 {
+    int result = 0;
+    int decoder_reg = 0;
+    int lmt_right, lmt_left = 0;
     switch (arg)
     {
         case 'h':
@@ -58,6 +65,22 @@ void switch_options(int arg, char* argv[], options_t* options)
         case 'm':
             options->move = true;
             move_to_angle(atof(argv[2]));
+            exit(EXIT_SUCCESS);
+
+        case 'r':
+            options->read = true;
+            while(1){
+                lmt_right = read_limit_switch_right();
+                lmt_left = read_limit_switch_left();
+                decoder_reg = read_decoder();
+                printf("\n");
+                printf("DECODER_VALUE %d LMLT_L: %d LMLT_R: %d", decoder_reg, lmt_left, lmt_right);
+                usleep(20000);
+                result = system("clear");
+                if(result){
+                    puts("system clear fail");
+                }
+            }
             exit(EXIT_SUCCESS);
 
         case 0:
@@ -105,6 +128,7 @@ void options_parser(int argc, char* argv[], options_t* options)
         {"help", no_argument, 0, 'h'},
         {"version", no_argument, 0, 'v'},
         {"move", no_argument, 0, 'm'},
+        {"read", no_argument, 0, 'r'},
         {"frequency", no_argument, 0, 'f'},
         {"no-colors", no_argument, 0, 0},
     };
@@ -112,7 +136,7 @@ void options_parser(int argc, char* argv[], options_t* options)
     while (true) {
 
         int option_index = 0;
-        arg = getopt_long(argc, argv, "hvmft:", long_options, &option_index);
+        arg = getopt_long(argc, argv, "hvmrft:", long_options, &option_index);
 
         /* End of the options? */
         if (arg == -1) break;

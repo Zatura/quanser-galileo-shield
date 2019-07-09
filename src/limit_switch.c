@@ -24,8 +24,14 @@
 #include "limit_switch.h"
 
 // read limit_switch
-int read_limit_switch() {
+int read_limit_switch_left() {
     char data[2];
-    read_pin(LIMIT_SWITCH_LEFT, data);
+    read_pin(LMT_SWITCH_L, data);
+    return !atoi(data);
+}
+
+int read_limit_switch_right() {
+    char data[2];
+    read_pin(LMT_SWITCH_R, data);
     return !atoi(data);
 }

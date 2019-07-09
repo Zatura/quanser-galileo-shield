@@ -19,6 +19,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <time.h>
+#include <unistd.h>
 #include <stdlib.h>
 //#include <galileo2io.h>
 #include "gpio_table.h"
@@ -100,6 +101,6 @@ int read_decoder() {
 // reset decoder
 void reset_decoder() {
     write_pin(RST_PIN, GPIO_LOW);
-    usleep(1);
+    usleep(10);
     write_pin(RST_PIN, GPIO_HIGH);
 }

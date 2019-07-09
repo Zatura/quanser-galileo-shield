@@ -33,6 +33,7 @@ struct options
     bool version;
     bool use_colors;
     bool move;
+    bool read;
     char file_name[FILE_NAME_SIZE];
 };
 

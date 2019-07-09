@@ -32,8 +32,6 @@
 int main(int argc, char* argv[])
 {
     /* Read command line options */
-    int decoder_reg = 0;
-    int result = 0;
     options_t options;
     options_parser(argc, argv, &options);
 #ifdef DEBUG
@@ -54,20 +52,5 @@ int main(int argc, char* argv[])
   write_pin(RST_PIN, GPIO_HIGH);
 
   //move_to_angle(90);
-/*    while(1){
-        if(read_limit_switch()) {
-
-        }
-
-        decoder_reg = read_decoder();
-        printf("\n");
-        printf("DECODER_VALUE: ");
-        printf("%d\n", decoder_reg);
-        usleep(20000);
-        result = system("clear");
-        if(result){
-            puts("system clear fail");
-        }
-    }*/
     return EXIT_SUCCESS;
 }

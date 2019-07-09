@@ -50,8 +50,8 @@
 #define SEL_PIN 10
 #define SD_PIN 12
 
-#define LIMIT_SWITCH_RIGHT 11
-#define LIMIT_SWITCH_LEFT 12
+#define LMT_SWITCH_R 11
+#define LMT_SWITCH_L 12
 
 // configure the chosen pin
 // pin: from 0 to 19

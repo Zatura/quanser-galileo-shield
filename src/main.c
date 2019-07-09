@@ -28,9 +28,6 @@
 #include "limit_switch.h"
 #include "motion.h"
 
-void stopHandler(int dummy) {
-    mov_to_angle(90);
-}
 
 int main(int argc, char* argv[])
 {
@@ -53,8 +50,6 @@ int main(int argc, char* argv[])
   write_pin(RST_PIN, GPIO_LOW);
   write_pin(SD_PIN, GPIO_HIGH);
   write_pin(RST_PIN, GPIO_HIGH);
-        
-     signal(SIGINT, stopHandler);
 
   //move_to_angle(90);
     return EXIT_SUCCESS;

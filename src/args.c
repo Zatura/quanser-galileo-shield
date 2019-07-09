@@ -64,9 +64,17 @@ void switch_options(int arg, char* argv[], options_t* options)
             puts("V");
             exit(EXIT_SUCCESS);
 
+        case 't':
+            options->target = true;
+            move_to_angle(atof(argv[2]));
+            exit(EXIT_SUCCESS);
+
         case 'm':
             options->move = true;
-            move_to_angle(atof(argv[2]));
+            move(atof(argv[2]));
+            usleep(atof(argv[3])*1000000);
+            stop();
+            printf("stop\n");
             exit(EXIT_SUCCESS);
 
         case 'r':
@@ -136,8 +144,9 @@ void options_parser(int argc, char* argv[], options_t* options)
         {"help", no_argument, 0, 'h'},
         {"version", no_argument, 0, 'v'},
         {"move", no_argument, 0, 'm'},
-        {"read", no_argument, 0, 'r'},
         {"pid", no_argument, 0, 'p'},
+        {"read", no_argument, 0, 'r'},
+        {"target", no_argument, 0, 't'},
         {"frequency", no_argument, 0, 'f'},
         {"no-colors", no_argument, 0, 0},
     };

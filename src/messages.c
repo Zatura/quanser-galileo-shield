@@ -63,9 +63,15 @@ void options()
                     "\t\tPrints %s version\n\n", __PROGRAM_NAME__);
     fprintf(stdout, BOLD GRAY "\t-h, --help\n" NO_COLOR ANSI
                     "\t\tPrints this help message\n\n");
-    fprintf(stdout, BOLD GRAY "\t-m "ANSI UNDERLINE"ANGLE"ANSI" "UNDERLINE"TIME"ANSI BOLD", --move "ANSI UNDERLINE"ANGLE"ANSI" "UNDERLINE"TIME"ANSI"\n" NO_COLOR ANSI
-                    "\t\tMoves the quanser robotic arm in ANGLE degrees and TIME secs \n\n");
-    fprintf(stdout, BOLD GRAY "\t-f "UNDERLINE ANSI"FREQUENCY"ANSI BOLD", --frequency "ANSI UNDERLINE"FREQUENCY"ANSI"\n" NO_COLOR ANSI
+    fprintf(stdout, BOLD GRAY "\t-m "ANSI UNDERLINE"VOLTAGE"ANSI" "UNDERLINE"TIME"ANSI BOLD", --move "ANSI UNDERLINE"VOLTAGE"ANSI" "UNDERLINE"TIME"ANSI"\n" NO_COLOR ANSI
+                    "\t\tMoves the quanser robotic arm using VOLTAGE(-27 to 27) during TIME seconds \n\n");
+    fprintf(stdout, BOLD GRAY "\t-t "ANSI UNDERLINE"ANGLE"ANSI BOLD", --target "ANSI UNDERLINE"ANGLE"ANSI" \n" NO_COLOR ANSI
+                    "\t\tMoves the quanser robotic arm to the target at ANGLE degrees \n\n");
+    fprintf(stdout, BOLD GRAY "\t-r, --read\n" NO_COLOR ANSI
+                    "\t\tReads and shows decoder and limit switch status\n\n");
+    fprintf(stdout, BOLD GRAY "\t-p "ANSI UNDERLINE"P"ANSI" "ANSI UNDERLINE"I"ANSI" "ANSI UNDERLINE"D"ANSI BOLD", --pid "ANSI UNDERLINE"P"ANSI" "ANSI UNDERLINE"I"ANSI" "ANSI UNDERLINE"D"ANSI" \n" NO_COLOR ANSI
+                    "\t\tMoves the quanser robotic arm in ANGLE degrees \n\n");
+    fprintf(stdout, BOLD GRAY "\t-f "ANSI UNDERLINE"FREQUENCY"ANSI BOLD", --frequency "ANSI UNDERLINE"FREQUENCY"ANSI"\n" NO_COLOR ANSI
                     "\t\tSets the pwm frequency\n\n");
     fprintf(stdout, BOLD GRAY "\t--no-color\n" NO_COLOR ANSI
                     "\t\tDoes not use colors for printing\n\n");

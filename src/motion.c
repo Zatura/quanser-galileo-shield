@@ -53,10 +53,10 @@ int move_to_angle(float angle){
       lmt_right = read_limit_switch_right();
       lmt_left = read_limit_switch_left();
 
-      if (lmt_right == 0 || lmt_left == 0){
-          stop();
-          break;
-      }
+//      if (lmt_right == 0 || lmt_left == 0){
+//          stop();
+//          break;
+//      }
     }
   };
   return 1;

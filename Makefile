@@ -56,7 +56,9 @@ BINDIR := bin
 SRCDIR := src
 LOGDIR := log
 LIBDIR := lib
+INCDIR := include
 TESTDIR := test
+BUILDDIR := build
 
 
 # Source code file extension

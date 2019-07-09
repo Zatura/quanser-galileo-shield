@@ -3,7 +3,7 @@
 #include <time.h>
 #include "decoder.h"
 #include "control.h"
-#include "gpio_table.h"
+#include "constants.h"
 
 int move(float angle, int time){
   printf("angle: %f\n", angle);

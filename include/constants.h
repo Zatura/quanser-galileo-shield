@@ -1,7 +1,7 @@
 /*
  * ============================================================================
  *
- *       Filename:  gpio_table.c
+ *       Filename:  constants.h
  *
  *    Description:  Main file of the project
  *
@@ -18,8 +18,6 @@
  */
 
 #include <string.h>
-//#include <galileo2io.h>
-
 #define GALILEO_DUMMY_DEVICE "/home/human/Documents/UFRGS/MICROS/galileo-dummy-device"
 #define PWM_CLASS_PATH "/sys/class/pwm/pwmchip0"
 #define GPIO_CLASS_PATH "/sys/class/gpio"
@@ -48,12 +46,3 @@
 #define RST_PIN 8
 #define OE_PIN 9
 #define SEL_PIN 10
-
-// configure the chosen pin
-// pin: from 0 to 19
-// res: GPIO_LOW or GPIO_HIGH
-// dir: DIR_OUT or DIR_IN
-int set_pin(int pin, char*  res, char* dir);
-int write_pin(int pin, char*  value);
-char* read_pin(int pin, char* str_pin_data);
-void initialize_gpio();

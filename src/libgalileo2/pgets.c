@@ -26,8 +26,6 @@
 #include <unistd.h>
 #include <stdio.h>
 
-//#include <galileo2io.h>
-
 char* pgets(char* s,int size,const char path[])
 {
 	int fd;

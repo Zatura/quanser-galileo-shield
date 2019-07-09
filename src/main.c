@@ -23,7 +23,8 @@
 #include "args.h"
 #include "colors.h"
 #include "gpio_table.h"
-#include "decoder.h"
+#include "constants.h"
+#include "control/decoder.h"
 
 
 int main(int argc, char* argv[])

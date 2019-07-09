@@ -21,7 +21,6 @@
 #include <time.h>
 #include <stdlib.h>
 //#include <galileo2io.h>
-#include "gpio_table.h"
 #include "decoder.h"
 
 // read decoder_value

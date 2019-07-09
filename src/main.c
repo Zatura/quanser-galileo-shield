@@ -28,6 +28,9 @@
 #include "limit_switch.h"
 #include "motion.h"
 
+void stopHandler(int dummy) {
+    mov_to_angle(90);
+}
 
 int main(int argc, char* argv[])
 {
@@ -50,9 +53,17 @@ int main(int argc, char* argv[])
 //int duty_period = get_duty_period();
 //puts(duty_period);
 
+<<<<<<< HEAD
   write_pin(RST_PIN,GPIO_LOW);
   write_pin(SD_PIN,GPIO_HIGH);
   write_pin(RST_PIN,GPIO_HIGH);
+=======
+  write_pin(RST_PIN, GPIO_LOW);
+  write_pin(SD_PIN, GPIO_HIGH);
+  write_pin(RST_PIN, GPIO_HIGH);
+        
+     signal(SIGINT, stopHandler);
+>>>>>>> f25fe884962eb3501cb93f952869deac6fa70772
 
 lmt_right = read_limit_switch_right();
 lmt_left = read_limit_switch_left();

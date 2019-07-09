@@ -25,18 +25,18 @@
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
-#include <stdio.h>
-
-//#include <galileo2io.h>
+#include <stdio.h>	
+#include "galileo2io.h"
 
 int pputs(const char path[],const char s[])
 {
 	int fd;
 	int result;
+	
 	if((fd=open(path,O_WRONLY)) == -1) return -1;
 	result=write(fd,s,strlen(s));
 	if(result)
-		printf("error when writing file\n");
+		printf("error when writing file\n");	
 	close(fd);
 	return result;
 }

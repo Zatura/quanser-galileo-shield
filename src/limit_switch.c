@@ -19,7 +19,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-//#include <galileo2io.h>
+#include "galileo2io.h"
 #include "gpio_table.h"
 #include "limit_switch.h"
 
@@ -27,6 +27,7 @@
 int read_limit_switch_left() {
     char data[2];
     read_pin(LMT_SWITCH_L, data);
+    printf("LEFT %c\n", data);
     return !atoi(data);
 }
 

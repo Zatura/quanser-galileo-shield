@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include "colors.h"
 #include "messages.h"
+#include "galileo2io.h"
 
 /*
  * Help message

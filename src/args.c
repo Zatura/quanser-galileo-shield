@@ -30,6 +30,7 @@
 #include "limit_switch.h"
 #include "decoder.h"
 #include "gpio_table.h"
+#include "galileo2io.h"
 
 /*
  * Sets the default options

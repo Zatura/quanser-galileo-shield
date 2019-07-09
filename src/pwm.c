@@ -20,6 +20,7 @@
 #include "pwm.h"
 #include "pputs.h"
 #include "pgets.h"
+#include "galileo2io.h"
 
 int get_pwm_frequency(){
   //TODO

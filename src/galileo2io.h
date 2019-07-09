@@ -1,6 +1,6 @@
 /*
-  pgets.c: Gets a string from a file, given its path.
-
+  galileo2io.h: Helper functions for Galileo I/O
+  
   Copyright (c) 2016 Walter Fetter Lages <w.fetter@ieee.org>
 
     This program is free software; you can redistribute it and/or modify
@@ -22,19 +22,19 @@
 
 */
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include "galileo2io.h"
+#ifndef GALILEO2IO_H
+#define GALILEO2IO_H
 
-char* pgets(char* s,int size,const char path[])
+#ifdef __cplusplus
+extern "C"
 {
-	int fd;
-	int result;
-	if((fd=open(path,O_RDONLY)) == -1) return NULL;
-	result = read(fd,s,size);
-	if(result)
-		printf("error when reading file\n");
-	close(fd);
-	return s;
-}
+#endif
+
+extern char * pgets(char *s,int size,const char path[]);
+extern int pputs(const char path[],const char s[]);
+
+#ifdef __cplusplus
+};
+#endif
+
+#endif

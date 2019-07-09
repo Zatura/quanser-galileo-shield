@@ -19,7 +19,7 @@
 
 #include <string.h>
 #include <stdio.h>
-//#include <galileo2io.h>
+#include "galileo2io.h"
 #include "gpio_table.h"
 #include "pputs.h"
 #include "pgets.h"
@@ -452,6 +452,7 @@ char* read_pin(int pin, char* str_pin_data) {
     case 15:
       snprintf((char*)str_path, sizeof(str_path), GPIO_CLASS_PATH"/gpio50/value");
       pgets(str_pin_data, sizeof(str_pin_data),str_path);
+	printf("pin %s\n",str_pin_data);
       break;
 
     case 16:

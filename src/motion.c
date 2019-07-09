@@ -8,6 +8,7 @@
 #include "control.h"
 #include "gpio_table.h"
 #include "pwm.h"
+#include "galileo2io.h"
 
 int move(float voltage){
   voltage = fminf(27, voltage);

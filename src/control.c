@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "control.h"
+#include "galileo2io.h"
 
 void update_voltage(pid_control* pid, float error, double utime){
   pid->D_error = (pid->P_error - error)/utime;

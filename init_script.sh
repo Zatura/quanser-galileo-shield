@@ -342,6 +342,38 @@ case "$1" in
   	chmod g+rw /sys/class/pwm/pwmchip0/pwm9/duty_cycle
   	chgrp pwm /sys/class/pwm/pwmchip0/pwm9/enable
   	chmod g+rw /sys/class/pwm/pwmchip0/pwm9/enable
+  	
+  	#################################################
+  	# IO14 - LMT RIGHT ###############################
+	#################################################
+  	if [ ! -d /sys/class/gpio/gpio48 ] ; then
+  	    echo -n "48" > /sys/class/gpio/export
+  	fi
+	echo -n "in" > /sys/class/gpio/gpio48/direction
+  	chgrp gpio /sys/class/gpio/gpio48/value
+  	chmod g+r  /sys/class/gpio/gpio48/value
+
+  	if [ ! -d /sys/class/gpio/gpio49 ] ; then
+  	    echo -n "49" > /sys/class/gpio/export
+  	fi
+  	echo -n "out" > /sys/class/gpio/gpio49/direction
+  	echo -n "0" > /sys/class/gpio/gpio49/value
+  	
+  	#################################################
+  	# IO15 - LMT LEFT ###############################
+	#################################################
+  	if [ ! -d /sys/class/gpio/gpio50 ] ; then
+  	    echo -n "50" > /sys/class/gpio/export
+  	fi
+	echo -n "in" > /sys/class/gpio/gpio50/direction
+  	chgrp gpio /sys/class/gpio/gpio50/value
+  	chmod g+r  /sys/class/gpio/gpio50/value
+
+  	if [ ! -d /sys/class/gpio/gpio51 ] ; then
+  	    echo -n "51" > /sys/class/gpio/export
+  	fi
+  	echo -n "out" > /sys/class/gpio/gpio51/direction
+  	echo -n "0" > /sys/class/gpio/gpio51/value  	
   ;;
   stop)
     echo -n "11" > /sys/class/gpio/unexport

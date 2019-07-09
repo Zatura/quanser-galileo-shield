@@ -1,2 +1,2 @@
-int move(float angle, int time);
+int move(float voltage);
 int move_to_angle(float angle);

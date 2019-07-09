@@ -101,5 +101,5 @@ int read_decoder() {
 void reset_decoder() {
     write_pin(RST_PIN, GPIO_LOW);
     usleep(1);
-    write_pin(RST_PIN, GPIO_HIGH)
+    write_pin(RST_PIN, GPIO_HIGH);
 }

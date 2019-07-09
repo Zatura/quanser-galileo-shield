@@ -58,7 +58,7 @@ int set_duty_period(int duty_period);
   * @param:  {int} duty cycle.
   * @return: {int} status of the operation.
   */
-int set_duty_cycle(int duty_cycle);
+int set_duty_cycle(float duty_cycle);
 
 /** Enable the GalileoGen2's PWM_11 (IO10).
   * @param:  {void}.

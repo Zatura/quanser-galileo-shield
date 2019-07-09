@@ -26,6 +26,6 @@
 // read limit_switch
 int read_limit_switch() {
     char data[2];
-    !read_pin(LIMIT_SWITCH_LEFT, data);
+    read_pin(LIMIT_SWITCH_LEFT, data);
     return !atoi(data);
 }

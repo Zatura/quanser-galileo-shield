@@ -26,11 +26,14 @@
 #include "decoder.h"
 #include "pwm.h"
 #include "limit_switch.h"
+#include "motion.h"
 
 
 int main(int argc, char* argv[])
 {
     /* Read command line options */
+    int decoder_reg = 0;
+    int result = 0;
     options_t options;
     options_parser(argc, argv, &options);
 #ifdef DEBUG
@@ -46,6 +49,9 @@ int main(int argc, char* argv[])
 //int duty_period = get_duty_period();
 //puts(duty_period);
 
+/*  write_pin(RST_PIN, GPIO_LOW);
+  write_pin(SD_PIN, GPIO_HIGH);
+  write_pin(RST_PIN, GPIO_HIGH);
     while(1){
         if(read_limit_switch()) {
 
@@ -60,6 +66,6 @@ int main(int argc, char* argv[])
         if(result){
             puts("system clear fail");
         }
-    }
+    }*/
     return EXIT_SUCCESS;
 }

@@ -69,7 +69,7 @@ CCAR=$(CROSS_COMPILE)ar
 
 
 # Defines the language standards for GCC
-STD := -std=gnu99 # See man gcc for more options
+STD := -std=gnu99 -lm# See man gcc for more options
 
 # Protection for stack-smashing attack
 STACK := -fstack-protector-all -Wstack-protector

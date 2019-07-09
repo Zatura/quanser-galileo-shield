@@ -1,16 +1,22 @@
-#include <stdio.h>
+
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
+//#include "conversions.h"
+#include <math.h>
 #include "decoder.h"
 #include "control.h"
 #include "gpio_table.h"
+#include "pwm.h"
 
-int move(float angle, int time){
-  printf("angle: %f\n", angle);
-  printf("time: %d\n\n", time);
-  while(1){
-    //TODO
-  }
+int move(float voltage){
+  voltage = fminf(27, voltage);
+  voltage = fmaxf(-27, voltage);
+  float duty_cycle = 50 + 50*(voltage)/27;
+  set_duty_cycle(duty_cycle);
+  
+  // shutdown-pin low: Turn on the bridge drivers
+  write_pin(SD_PIN, GPIO_LOW);
   return 0;
 }
 

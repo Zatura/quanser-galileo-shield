@@ -56,12 +56,12 @@ int set_duty_period(int duty_period) {
     return pputs(PWM_CLASS_PATH"/pwm9/duty_cycle", duty_period_string);
 }
 
-int set_duty_cycle(int duty_cycle) {
+int set_duty_cycle(float duty_cycle) {
     if(duty_cycle > 100 || duty_cycle < 0) {
         //return ERROR;
         return 1;
     }
-    int duty_period = (int) duty_cycle * PWM_DEFAULT_PERIOD / 100;
+    int duty_period = floor((float) duty_cycle * PWM_DEFAULT_PERIOD / 100);
     return set_duty_period(duty_period);
 }
 

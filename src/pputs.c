@@ -35,7 +35,7 @@ int pputs(const char path[],const char s[])
 	
 	if((fd=open(path,O_WRONLY)) == -1) return -1;
 	result=write(fd,s,strlen(s));
-	if(result)
+	if(result == -1)
 		printf("error when writing file\n");	
 	close(fd);
 	return result;

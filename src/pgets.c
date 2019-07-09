@@ -30,10 +30,10 @@
 char* pgets(char* s,int size,const char path[])
 {
 	int fd;
-	int result;
+	int result = -99;
 	if((fd=open(path,O_RDONLY)) == -1) return NULL;
 	result = read(fd,s,size);
-	if(result)
+	if(result == -1)
 		printf("error when reading file\n");
 	close(fd);
 	return s;

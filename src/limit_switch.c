@@ -27,7 +27,6 @@
 int read_limit_switch_left() {
     char data[2];
     read_pin(LMT_SWITCH_L, data);
-    printf("LEFT %c\n", data);
     return !atoi(data);
 }
 

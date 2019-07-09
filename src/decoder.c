@@ -97,54 +97,9 @@ int read_decoder() {
   return decode_value;
 }
 
-int read_low_byte() {
-  char data[2];
-  int decode_value = 0;
-  struct timespec sleep_time;
-
-  sleep_time.tv_sec = 0;
-  sleep_time.tv_nsec = 90; //1000 ns = 1 us
-
-  // Set OE and SEL pin into HIGH BYTE read state
-//  write_pin(OE_PIN, GPIO_LOW);
-
-  //write_pin(SEL_PIN, GPIO_LOW);
-
-//  write_pin(SEL_PIN, GPIO_HIGH);
-  nanosleep(&sleep_time,NULL);
-
-  read_pin(D0_PIN, data);
-  printf("%d ",atoi(data));
-  decode_value += atoi(data)*128;
-  read_pin(D1_PIN, data);
-  printf("%d ",atoi(data));
-  decode_value += atoi(data)*64;
-  read_pin(D2_PIN, data);
-  printf("%d ",atoi(data));
-  decode_value += atoi(data)*32;
-  read_pin(D3_PIN, data);
-  printf("%d ",atoi(data));
-  decode_value += atoi(data)*16;
-  read_pin(D4_PIN, data);
-  printf("%d ",atoi(data));
-  decode_value += atoi(data)*8;
-  read_pin(D5_PIN, data);
-  data[1]='\0';
-  printf("%d ",atoi(data));
-  decode_value += atoi(data)*4;
-  read_pin(D6_PIN, data);
-  data[1]='\0';
-  printf("%d ",atoi(data));
-  decode_value += atoi(data)*2;
-  read_pin(D7_PIN, data);
-  printf("%d ",atoi(data));
-  data[1]='\0';
-  decode_value += atoi(data);
-  return decode_value;
-}
-
-void reset_oe()
-{
-    write_pin(OE_PIN, GPIO_HIGH);
-    write_pin(OE_PIN, GPIO_LOW);
+// reset decoder
+void reset_decoder() {
+    write_pin(RST_PIN, GPIO_LOW);
+    usleep(1);
+    write_pin(RST_PIN, GPIO_HIGH)
 }

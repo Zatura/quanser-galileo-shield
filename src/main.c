@@ -24,6 +24,8 @@
 #include "colors.h"
 #include "gpio_table.h"
 #include "decoder.h"
+#include "pwm.h"
+#include "limit_switch.h"
 
 
 int main(int argc, char* argv[])
@@ -43,16 +45,21 @@ int main(int argc, char* argv[])
 //int pwm_period = get_pwm_period();
 //int duty_period = get_duty_period();
 //puts(duty_period);
-/*while(1){
-    decoder_reg = read_decoder();
-    printf("\n");
-    printf("DECODER_VALUE: ");
-    printf("%d\n", decoder_reg);
-    usleep(20000);
-    result = system("clear");
-    if(result){
-      puts("system clear fail");
+
+    while(1){
+        if(read_limit_switch()) {
+
+        }
+
+        decoder_reg = read_decoder();
+        printf("\n");
+        printf("DECODER_VALUE: ");
+        printf("%d\n", decoder_reg);
+        usleep(20000);
+        result = system("clear");
+        if(result){
+            puts("system clear fail");
+        }
     }
-}*/
     return EXIT_SUCCESS;
 }

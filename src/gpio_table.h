@@ -49,6 +49,9 @@
 #define OE_PIN 9
 #define SEL_PIN 10
 
+#define LIMIT_SWITCH_RIGHT 11
+#define LIMIT_SWITCH_LEFT 12
+
 // configure the chosen pin
 // pin: from 0 to 19
 // res: GPIO_LOW or GPIO_HIGH

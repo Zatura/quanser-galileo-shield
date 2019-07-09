@@ -29,7 +29,7 @@ int move_to_angle(float angle){
   last = clock();
   current_position = 0;
   int print_count = 0;
-  
+
   while(1){
     current_position = 360*read_decoder()/QNSR_RESOLUTION;
     error = angle - current_position;
@@ -42,4 +42,11 @@ int move_to_angle(float angle){
     print_count++;
   }
   return 0;
+
+}
+
+void stop(){
+  set_duty_cycle(50);
+  usleep(100);
+  write_pin(SD_PIN, GPIO_HIGH);
 }

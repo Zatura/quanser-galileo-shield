@@ -28,6 +28,7 @@
 #include "motion.h"
 #include "limit_switch.h"
 #include "decoder.h"
+#include "gpio_table.h"
 
 /*
  * Sets the default options
@@ -74,7 +75,8 @@ void switch_options(int arg, char* argv[], options_t* options)
                 lmt_left = read_limit_switch_left();
                 decoder_reg = read_decoder();
                 printf("\n");
-                printf("DECODER_VALUE %d LMLT_L: %d LMLT_R: %d", decoder_reg, lmt_left, lmt_right);
+                printf("DECODER_VALUE %d    LMLT_L: %d    LMLT_R: %d\n", decoder_reg, lmt_left, lmt_right);;
+                printf("ANGLE %f\n", (float)360*decoder_reg/QNSR_RESOLUTION);
                 usleep(20000);
                 result = system("clear");
                 if(result){

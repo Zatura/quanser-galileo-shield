@@ -324,8 +324,7 @@ case "$1" in
   	fi
     echo -n "out" > /sys/class/gpio/gpio24/direction
 
-    if [ ! -d /sys/class/gpio/gpio25
-     ] ; then
+    if [ ! -d /sys/class/gpio/gpio25 ] ; then
         echo -n "25" > /sys/class/gpio/export
     fi
 

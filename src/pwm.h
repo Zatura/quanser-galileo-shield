@@ -19,7 +19,7 @@
 #ifndef PWM_H
 #define PWM_H
 
-#define PWM_DEFAULT_PERIOD 1000000
+#define PWM_DEFAULT_PERIOD 666666
 
 #include <math.h>
 #include <stdio.h>

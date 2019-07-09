@@ -333,8 +333,8 @@ case "$1" in
     fi
     echo -n "1" > /sys/class/gpio/gpio72/value
 
-    echo '1000000' > /sys/class/pwm/pwmchip0/device/pwm_period
-    echo '500000' > /sys/class/pwm/pwmchip0/pwm9/duty_cycle
+    echo '666666' > /sys/class/pwm/pwmchip0/device/pwm_period
+    echo '333333' > /sys/class/pwm/pwmchip0/pwm9/duty_cycle
 
   	chgrp pwm /sys/class/pwm/pwmchip0/device/pwm_period
   	chmod g+rw /sys/class/pwm/pwmchip0/device/pwm_period

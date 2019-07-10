@@ -20,6 +20,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <math.h>
+#include "calibrate.h"
 #include "args.h"
 #include "colors.h"
 #include "gpio_table.h"
@@ -44,5 +46,10 @@ int main(int argc, char* argv[])
       fprintf(stdout, BROWN "use colors: %d\n" NO_COLOR, options.use_colors);
       fprintf(stdout, BROWN "filename: %s\n" NO_COLOR, options.file_name);
   #endif
+    int decoder_reg = load_calibration();
+    printf("\n");
+    printf("DECODER_VALUE %d  \n", decoder_reg);
+    printf("ANGLE %f rads\n", (float)2*M_PI*decoder_reg/QNSR_RESOLUTION);
+    printf("ANGLE %f degrees\n", (float)360*decoder_reg/QNSR_RESOLUTION);
     return EXIT_SUCCESS;
 }

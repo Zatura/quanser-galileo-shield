@@ -37,6 +37,7 @@ struct options
     bool reset;
     bool decoder;
     bool pid;
+    bool calibrate;
     char file_name[FILE_NAME_SIZE];
 };
 

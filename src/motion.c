@@ -12,6 +12,13 @@
 
 static volatile int keep_running = 1;
 
+void stop(){
+  set_duty_cycle(50);
+  usleep(100);
+  write_pin(SD_PIN, GPIO_HIGH);
+  disable_pwm();
+}
+
 void signal_handler() {
     keep_running = 0;
     stop();
@@ -35,8 +42,8 @@ int move(float voltage){
 
 int move_to_angle(float angle){
   pid_control *pid = (pid_control*)malloc(sizeof(pid_control));
-  // int lmt_left = 0;
-  // int lmt_right = 0;
+  int lmt_left = 0;
+  int lmt_right = 0;
   clock_t last, now;
   float current_position = 0;
   float error = 0;
@@ -60,22 +67,20 @@ int move_to_angle(float angle){
       move(pid->voltage);
       last = now;
       print_count++;
-      /*lmt_right = read_limit_switch_right();
+      lmt_right = read_limit_switch_right();
       lmt_left = read_limit_switch_left();
 
-     if (lmt_right == 0 || lmt_left == 0){
+      if (lmt_right == 1 && pid->voltage > 0){
          stop();
          break;
-     }*/
+      }
+
+      if (lmt_left == 1 && pid->voltage < 0){
+         stop();
+         break;
+      }     
     }
     stop();
   };
   return 1;
-}
-
-void stop(){
-  set_duty_cycle(50);
-  usleep(100);
-  write_pin(SD_PIN, GPIO_HIGH);
-  disable_pwm();
 }

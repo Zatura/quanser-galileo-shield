@@ -27,6 +27,7 @@
 #include "messages.h"
 #include "args.h"
 #include "colors.h"
+#include "calibrate.h"
 #include "motion.h"
 #include "control.h"
 #include "limit_switch.h"
@@ -111,7 +112,10 @@ void switch_options(int arg, char* argv[], options_t* options)
             reset_decoder();
             exit(EXIT_SUCCESS);
 
-
+        case 'c':
+            options->calibrate = true;
+            calibrate();
+            exit(EXIT_SUCCESS);
 
         case 0:
             options->use_colors = false;
@@ -161,6 +165,7 @@ void options_parser(int argc, char* argv[], options_t* options)
         {"pid", no_argument, 0, 'p'},
         {"reset", no_argument, 0, 'r'},
         {"decoder", no_argument, 0, 'd'},
+        {"calibrate", no_argument, 0, 'c'},        
         {"target", no_argument, 0, 't'},
         {"frequency", no_argument, 0, 'f'},
         {"no-colors", no_argument, 0, 0},
@@ -169,7 +174,7 @@ void options_parser(int argc, char* argv[], options_t* options)
     while (true) {
 
         int option_index = 0;
-        arg = getopt_long(argc, argv, "hvmrdpft:", long_options, &option_index);
+        arg = getopt_long(argc, argv, "hvmrdcpft:", long_options, &option_index);
 
         /* End of the options? */
         if (arg == -1) break;

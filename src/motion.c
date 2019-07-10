@@ -14,7 +14,7 @@ static volatile int keep_running = 1;
 
 void signal_handler() {
     keep_running = 0;
-    write_pin(SD_PIN, GPIO_HIGH);
+    stop();
     disable_pwm();
 }
 
@@ -68,6 +68,7 @@ int move_to_angle(float angle){
          break;
      }*/
     }
+    stop();
   };
   return 1;
 }

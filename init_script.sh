@@ -238,6 +238,8 @@ case "$1" in
   	echo -n "out" > /sys/class/gpio/gpio41/direction
   	echo -n "0" > /sys/class/gpio/gpio41/value
 
+    echo "1" > /sys/class/gpio/gpio40/value
+
 
   	#################################################
   	# IO9 - !OE #####################################
@@ -310,6 +312,8 @@ case "$1" in
     fi
     echo -n "out" > /sys/class/gpio/gpio43/direction
     echo -n "0" > /sys/class/gpio/gpio43/value
+
+    echo "1" > /sys/class/gpio/gpio15/value
 
 
   	#################################################
@@ -433,6 +437,12 @@ case "$1" in
     echo -n "24" > /sys/class/gpio/unexport
     echo -n "25" > /sys/class/gpio/unexport
     echo -n "72" > /sys/class/gpio/unexport
+
+    echo -n "48" > /sys/class/gpio/unexport
+    echo -n "49" > /sys/class/gpio/unexport
+
+    echo -n "50" > /sys/class/gpio/unexport
+    echo -n "51" > /sys/class/gpio/unexport    
 	;;
   status)
   	echo -n Period:

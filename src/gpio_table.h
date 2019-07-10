@@ -1,21 +1,15 @@
-/*
- * ============================================================================
- *
- *       Filename:  gpio_table.c
- *
- *    Description:  Main file of the project
- *
- *        Created:  17/06/2019
- *       Compiler:  gcc
- *
- *         Author:  Matheus Toazza Tura
- *                  Daniel Maia Cunha
- *                  Arthur Ribeiro
- *
- *   Organization:  UFRGS
- *
- * ============================================================================
- */
+/*! \file gpio_table.h
+		\brief Define function to handle with gpio
+
+			 Created:  17/06/2019
+			 Compiler:  gcc
+
+			 Author:  Matheus Toazza Tura
+								Daniel Maia Cunha
+								Arthur Ribeiro
+
+			 Organization:  UFRGS
+*/
 
 #include <string.h>
 //#include <galileo2io.h>
@@ -79,6 +73,6 @@ int write_pin(int pin, char*  value);
 char* read_pin(int pin, char* str_pin_data);
 
 /*! \fn void initialize_gpio()
-    \brief Initialize GPIO config    
+    \brief Initialize GPIO config
 */
 void initialize_gpio();

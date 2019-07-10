@@ -1,4 +1,4 @@
-/*! \file args.c
+/*! \file calibrate.c
     \brief Calibrate robot config
 
        Created:  09/07/2019
@@ -12,6 +12,6 @@
 */
 
 /*! \fn void calibrate();
-    \brief Calibrate robot sensors  
+    \brief Calibrate robot sensors
 */
 void calibrate();

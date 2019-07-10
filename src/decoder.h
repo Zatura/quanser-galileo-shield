@@ -1,5 +1,5 @@
-/*! \file control.h
-		\brief Define function to handle decoder component
+/*! \file decoder.h
+		\brief Define functions to handle decoder component
 
 			 Created:  16/06/2019
 			 Compiler:  gcc
@@ -18,6 +18,6 @@
 int read_decoder();
 
 /*! \fn int reset_decoder();
-    \brief Reset decoder    
+    \brief Reset decoder
 */
 void reset_decoder();

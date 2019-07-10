@@ -57,6 +57,9 @@ void switch_options(int arg, char* argv[], options_t* options)
     int result = 0;
     int decoder_reg = 0;
     int lmt_right, lmt_left = 0;
+    int now = 0;
+    int last = 0;
+    int overflow_count = 0;
     switch (arg)
     {
         case 'h':
@@ -87,10 +90,14 @@ void switch_options(int arg, char* argv[], options_t* options)
 
         case 'd':
             options->decoder = true;
+	    last = read_decoder();
             while(1){
                 lmt_right = read_limit_switch_right();
                 lmt_left = read_limit_switch_left();
-                decoder_reg = read_decoder();
+                now = read_decoder();
+		buffer_detect(now, last, &overflow_count);
+		decoder_reg = now + overflow_count*65536;
+		
                 printf("\n");
                 printf("DECODER_VALUE %d    LMLT_L: %d    LMLT_R: %d\n", decoder_reg, lmt_left, lmt_right);
                 printf("ANGLE %f rads\n", (float)2*M_PI*decoder_reg/QNSR_RESOLUTION);
@@ -99,6 +106,7 @@ void switch_options(int arg, char* argv[], options_t* options)
                 if(result){
                     puts("system clear fail");
                 }
+                last = now;
             }
             exit(EXIT_SUCCESS);
 

@@ -68,17 +68,24 @@ int load_calibration(){
   return decoder_value;
 }
 void calibrate() {
-	int lmt_right = 0;
-	int decoder_reg = 0;
+    int lmt_right = 0;
+    int decoder_reg = 0;
+    int now = 0;
+    int last = 0;
+    int overflow_count = 0;
 
-	signal(SIGINT, signal_handler);
+    last = read_decoder();
+    signal(SIGINT, signal_handler);
     reset_decoder();
     move(5);
     while(!lmt_right){
-		lmt_right = read_limit_switch_right();
+       now = read_decoder();
+       buffer_detect(now, last, &overflow_count);
+       decoder_reg = now + overflow_count*65536;	
+       lmt_right = read_limit_switch_right();
+       last = now;
     }
     stop();
-    decoder_reg = read_decoder();
     printf("\n");
     printf("DECODER_VALUE %d  \n", decoder_reg);
     printf("ANGLE %f rads\n", (float)2*M_PI*decoder_reg/QNSR_RESOLUTION);

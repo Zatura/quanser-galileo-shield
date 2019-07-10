@@ -111,3 +111,16 @@ void reset_decoder() {
     write_pin(RST_PIN, GPIO_HIGH);
     printf("Decoder register reseted!\n");
 }
+
+void buffer_detect(int now, int last, int *count){
+    //underflow
+    if ((now - last) > 30000)
+    {
+      *count = *count - 1;
+    }    
+    //overflow
+    if ((now - last) < -30000)
+    {
+      *count = *count + 1;
+    }          
+}

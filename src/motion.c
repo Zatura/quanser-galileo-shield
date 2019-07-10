@@ -38,7 +38,7 @@ int move(float voltage){
   write_pin(SD_PIN, GPIO_LOW);
   enable_pwm();
   return 0;
-}
+}  
 
 int move_to_angle(float angle){
   pid_control *pid = (pid_control*)malloc(sizeof(pid_control));
@@ -47,6 +47,12 @@ int move_to_angle(float angle){
   clock_t last, now;
   float current_position = 0;
   float error = 0;
+  int last_dec = 0;
+  int now_dec = 0;
+  int overflow_count = 0;
+  int decoder_reg = 0;
+  int max_value = load_calibration();
+  
   int result = load_pid(&pid->kp, &pid->ki, &pid->kd);
   angle = fmod(angle, 360);
   angle = 2*M_PI*angle/360;
@@ -57,11 +63,20 @@ int move_to_angle(float angle){
 
     signal(SIGINT, signal_handler);
 
+    last_dec = read_decoder();
     while(keep_running){
-      current_position = read_angle();
+      
+      
+      
+      
+      now_dec = read_decoder();
+      buffer_detect(now_dec, last_dec, &overflow_count);
+      decoder_reg = now_dec + overflow_count*65536;	
+      
+      current_position = M_PI*decoder_reg/max_value;
       error = angle - current_position;
       if (print_count % 10 == 0)
-       printf("%d:   POS: %f  |  TARGET %f  |  ERR %f rads  |  VOL %f V\n", print_count, current_position, angle, error, pid->voltage);
+       printf("%d:   POS: %f  |  TARGET %f  |  ERR %f rads  |  VOL %f V  |  REG %d\n", print_count, current_position, angle, error, pid->voltage, decoder_reg);
       now = clock();
       update_voltage(pid, error, ((double)(now-last))/CLOCKS_PER_SEC);
       move(pid->voltage);
@@ -70,7 +85,7 @@ int move_to_angle(float angle){
       lmt_right = read_limit_switch_right();
       lmt_left = read_limit_switch_left();
 
-      if (lmt_right == 1 && pid->voltage > 0){
+      /*if (lmt_right == 1 && pid->voltage > 0){
          stop();
          break;
       }
@@ -78,7 +93,8 @@ int move_to_angle(float angle){
       if (lmt_left == 1 && pid->voltage < 0){
          stop();
          break;
-      }     
+      }    */
+      last_dec = now_dec;
     }
     stop();
   };

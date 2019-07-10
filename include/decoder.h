@@ -20,3 +20,4 @@ int read_decoder();
 float read_angle();
 void reset_oe();
 void reset_decoder();
+void buffer_detect(int now, int last, int *count);

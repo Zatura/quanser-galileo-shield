@@ -1,22 +1,15 @@
-/*
- * ============================================================================
- *
- *       Filename:  args.c
- *
- *    Description:  Command line options parser using GNU getopt
- *
- *        Created:  16/06/2019
- *       Compiler:  gcc
- *
- *         Author:  Matheus Toazza Tura
- *                  Daniel Maia Cunha
- *                  Arthur Ribeiro
- *
- *   Organization:  UFRGS
- *
- * ============================================================================
- */
+/*! \file args.c
+    \brief Command line options parser using GNU getopt
 
+       Created:  16/06/2019
+       Compiler:  gcc
+
+       Author:  Matheus Toazza Tura
+                Daniel Maia Cunha
+                Arthur Ribeiro
+
+       Organization:  UFRGS
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,9 +25,6 @@
 #include "gpio_table.h"
 #include "galileo2io.h"
 
-/*
- * Sets the default options
- */
 static void set_default_options(options_t* options)
 {
     options->help = false;
@@ -43,9 +33,6 @@ static void set_default_options(options_t* options)
     options->move = false;
 }
 
-/*
- * Finds the matching case of the current command line option
- */
 void switch_options(int arg, char* argv[], options_t* options)
 {
     int result = 0;
@@ -121,9 +108,6 @@ void switch_options(int arg, char* argv[], options_t* options)
     }
 }
 
-/*
- * Tries to get the file name. Otherwise, gets stdin
- */
 void get_file_name(int argc, char* argv[], options_t* options)
 {
 
@@ -137,9 +121,6 @@ void get_file_name(int argc, char* argv[], options_t* options)
     }
 }
 
-/*
- * Public function that loops until command line options were parsed
- */
 void options_parser(int argc, char* argv[], options_t* options)
 {
     set_default_options(options);

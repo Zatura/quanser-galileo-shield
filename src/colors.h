@@ -1,21 +1,53 @@
-/*
- * ============================================================================
- *
- *       Filename:  colors.h
- *
- *    Description:  This file define the output colors used by the program
- *
- *        Created:  16/06/2019
- *       Compiler:  gcc
- *
- *         Author:  Matheus Toazza Tura
- *                  Daniel Maia Cunha
- *                  Arthur Ribeiro
- *
- *   Organization:  UFRGS
- *
- * ============================================================================
+ /*! \file colors.h
+     \brief This file define the output colors used by the program
+
+        Created:  16/06/2019
+        Compiler:  gcc
+
+        Author:  Matheus Toazza Tura
+                 Daniel Maia Cunha
+                 Arthur Ribeiro
+
+        Organization:  UFRGS
  */
+
+ /*! \def NO_COLOR
+     \brief no color
+ */
+ /*! \def RED
+     \brief RED
+ */
+ /*! \def GREEN
+     \brief GREEN
+ */
+ /*! \def BROWN
+     \brief BROWN
+ */
+ /*! \def BLUE
+     \brief BLUE
+ */
+ /*! \def MAGENTA
+     \brief MAGENTA
+ */
+ /*! \def CYAN
+     \brief CYAN
+ */
+ /*! \def GRAY
+     \brief GRAY
+ */
+ /*! \def ANSI
+     \brief ANSI
+ */
+ /*! \def BOLD
+     \brief BOLD
+ */
+ /*! \def UNDERLINE
+     \brief UNDERLINE
+ */
+ /*! \def ITALIC
+     \brief ITALIC
+ */
+
 #ifndef COLORS_H
 #define COLORS_H
 

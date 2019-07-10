@@ -53,11 +53,32 @@
 #define LMT_SWITCH_R 15
 #define LMT_SWITCH_L 14
 
-// configure the chosen pin
-// pin: from 0 to 19
-// res: GPIO_LOW or GPIO_HIGH
-// dir: DIR_OUT or DIR_IN
+/*! \fn int set_pin(int pin, char*  res, char* dir)
+    \brief Configure the chosen pin
+    \param pin From 0 to 19
+    \param res GPIO_LOW or GPIO_HIGH
+    \param dir DIR_OUT or DIR_IN
+    \return code
+*/
 int set_pin(int pin, char*  res, char* dir);
+
+/*! \fn int write_pin(int pin, char*  value)
+    \brief Write a value to the chosen pin
+    \param pin From 0 to 19
+    \param value Value to write
+    \return Code
+*/
 int write_pin(int pin, char*  value);
+
+/*! \fn char* read_pin(int pin, char* str_pin_data)
+    \brief Read value from the chosen pin
+    \param pin From 0 to 19
+    \param str_pin_data data
+    \return Read value
+*/
 char* read_pin(int pin, char* str_pin_data);
+
+/*! \fn void initialize_gpio()
+    \brief Initialize GPIO config    
+*/
 void initialize_gpio();

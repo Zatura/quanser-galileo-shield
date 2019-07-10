@@ -19,7 +19,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "galileo2io.h"
 #include "gpio_table.h"
 #include "limit_switch.h"
 

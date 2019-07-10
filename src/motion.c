@@ -39,10 +39,10 @@ int move_to_angle(float angle){
     int print_count = 0;
 
     while(1){
-      current_position = (float)360*read_decoder()/QNSR_RESOLUTION;
+      current_position = read_angle();
       error = angle - current_position;
       if (print_count % 10 == 0)
-       printf("%d: ERR %f | POS %f | VOL %f\n",print_count, error, current_position, pid->voltage);
+       printf("%d: ERR %f | POS %f rads | VOL %f V\n",print_count, error, current_position, pid->voltage);
       now = clock();
       update_voltage(pid, error, ((double)(now-last))/CLOCKS_PER_SEC);
       move(pid->voltage);

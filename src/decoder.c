@@ -21,6 +21,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <math.h>
 #include "galileo2io.h"
 #include "gpio_table.h"
 #include "decoder.h"
@@ -96,6 +97,11 @@ int read_decoder() {
 
   write_pin(OE_PIN, GPIO_HIGH);
   return decode_value;
+}
+
+float read_angle(){
+  int decoder_reg = read_decoder();
+  return (float)2*M_PI*decoder_reg/QNSR_RESOLUTION;
 }
 
 // reset decoder

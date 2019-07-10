@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <math.h>
 #include <unistd.h>
 #include "messages.h"
 #include "args.h"
@@ -30,7 +31,6 @@
 #include "limit_switch.h"
 #include "decoder.h"
 #include "gpio_table.h"
-#include "galileo2io.h"
 
 /*
  * Sets the default options
@@ -41,6 +41,10 @@ static void set_default_options(options_t* options)
     options->version = false;
     options->use_colors = true;
     options->move = false;
+    options->target = false;
+    options->decoder = false;
+    options->pid = false;
+    options->reset = false;
 }
 
 /*
@@ -86,7 +90,7 @@ void switch_options(int arg, char* argv[], options_t* options)
                 decoder_reg = read_decoder();
                 printf("\n");
                 printf("DECODER_VALUE %d    LMLT_L: %d    LMLT_R: %d\n", decoder_reg, lmt_left, lmt_right);
-                printf("ANGLE %f\n", (float)360*decoder_reg/QNSR_RESOLUTION);
+                printf("ANGLE %f rads\n", (float)2*M_PI*decoder_reg/QNSR_RESOLUTION);
                 usleep(20000);
                 result = system("clear");
                 if(result){

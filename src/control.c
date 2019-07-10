@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "control.h"
-#include "galileo2io.h"
 
 void update_voltage(pid_control* pid, float error, double utime){
   pid->D_error = (pid->P_error - error)/utime;
@@ -26,7 +25,7 @@ int save_pid(float kp, float ki, float kd){
   result = fwrite(&pid, sizeof(struct pid_save), 1, outfile);
   if(result == 0)
      printf("error writing file !\n");
-  
+
   fclose (outfile);
   return 0;
 }

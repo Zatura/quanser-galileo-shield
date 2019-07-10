@@ -17,6 +17,6 @@
  * ============================================================================
  */
 int read_decoder();
-int read_low_byte();
+float read_angle();
 void reset_oe();
 void reset_decoder();

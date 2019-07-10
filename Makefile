@@ -57,7 +57,7 @@ SRCDIR := src
 LOGDIR := log
 LIBDIR := lib
 TESTDIR := test
-INCLUDESDIR := include
+INCLUDEDIR := include
 
 # Source code file extension
 SRCEXT := c
@@ -78,7 +78,7 @@ STACK := -fstack-protector-all -Wstack-protector
 WARNS := -Wall -Wextra -pedantic # -pedantic warns on language standards
 
 # Flags for compiling
-CFLAGS := -O1 $(STD) $(STACK) $(WARNS) -I$(INCLUDESDIR)
+CFLAGS := -O1 $(STD) $(STACK) $(WARNS) -I$(INCLUDEDIR)
 
 # Debug options
 DEBUG := -g3 -DDEBUG=1

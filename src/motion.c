@@ -32,6 +32,8 @@ int move_to_angle(float angle){
   float current_position = 0;
   float error = 0;
   int result = load_pid(&pid->kp, &pid->ki, &pid->kd);
+  angle = fmod(angle, 360);
+  angle = 2*M_PI*angle/360;
   printf("res %d\n",result);
   if (result == 0){
     last = clock();
@@ -42,7 +44,7 @@ int move_to_angle(float angle){
       current_position = read_angle();
       error = angle - current_position;
       if (print_count % 10 == 0)
-       printf("%d: ERR %f | POS %f rads | VOL %f V\n",print_count, error, current_position, pid->voltage);
+       printf("%d:   POS: %f  |  TARGET %f  |  ERR %f rads  |  VOL %f V\n", print_count, current_position, angle, error, pid->voltage);
       now = clock();
       update_voltage(pid, error, ((double)(now-last))/CLOCKS_PER_SEC);
       move(pid->voltage);

@@ -73,7 +73,7 @@ void options()
     fprintf(stdout, BOLD GRAY "\t-r, --reset\n" NO_COLOR ANSI
                     "\t\tResets decoder register\n\n");
     fprintf(stdout, BOLD GRAY "\t-p "ANSI UNDERLINE"P"ANSI" "ANSI UNDERLINE"I"ANSI" "ANSI UNDERLINE"D"ANSI BOLD", --pid "ANSI UNDERLINE"P"ANSI" "ANSI UNDERLINE"I"ANSI" "ANSI UNDERLINE"D"ANSI" \n" NO_COLOR ANSI
-                    "\t\tMoves the quanser robotic arm in ANGLE degrees \n\n");
+                    "\t\tSets Proportional(P), Integrative(I) and Derivative(D) gains, saved at pid.dat file\n\n");
     fprintf(stdout, BOLD GRAY "\t--no-color\n" NO_COLOR ANSI
                     "\t\tDoes not use colors for printing\n\n");
 

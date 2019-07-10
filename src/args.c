@@ -23,6 +23,7 @@
 #include <time.h>
 #include <math.h>
 #include <unistd.h>
+#include <signal.h>
 #include "messages.h"
 #include "args.h"
 #include "colors.h"
@@ -75,6 +76,7 @@ void switch_options(int arg, char* argv[], options_t* options)
             exit(EXIT_SUCCESS);
 
         case 'm':
+            signal(SIGINT, signal_handler);
             options->move = true;
             move(atof(argv[2]));
             usleep(atof(argv[3])*1000000);

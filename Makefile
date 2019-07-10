@@ -57,7 +57,7 @@ SRCDIR := src
 LOGDIR := log
 LIBDIR := lib
 TESTDIR := test
-
+INCLUDESDIR := include
 
 # Source code file extension
 SRCEXT := c
@@ -78,7 +78,7 @@ STACK := -fstack-protector-all -Wstack-protector
 WARNS := -Wall -Wextra -pedantic # -pedantic warns on language standards
 
 # Flags for compiling
-CFLAGS := -O1 $(STD) $(STACK) $(WARNS)
+CFLAGS := -O1 $(STD) $(STACK) $(WARNS) -I$(INCLUDESDIR)
 
 # Debug options
 DEBUG := -g3 -DDEBUG=1
@@ -88,6 +88,7 @@ LIBS := # -lm  -I src
 
 # Test libraries
 TEST_LIBS := -l cmocka -L /usr/lib
+
 
 
 

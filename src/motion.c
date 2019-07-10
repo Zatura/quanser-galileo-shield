@@ -3,11 +3,20 @@
 #include <stdio.h>
 #include <time.h>
 #include <math.h>
+#include <signal.h>
 #include "decoder.h"
 #include "control.h"
 #include "gpio_table.h"
 #include "pwm.h"
 #include "limit_switch.h"
+
+static volatile int keep_running = 1;
+
+void signal_handler() {
+    keep_running = 0;
+    write_pin(SD_PIN, GPIO_HIGH);
+    disable_pwm();
+}
 
 int move(float voltage){
   voltage = fminf(27, voltage);
@@ -34,13 +43,14 @@ int move_to_angle(float angle){
   int result = load_pid(&pid->kp, &pid->ki, &pid->kd);
   angle = fmod(angle, 360);
   angle = 2*M_PI*angle/360;
-  printf("res %d\n",result);
   if (result == 0){
     last = clock();
     current_position = 0;
     int print_count = 0;
 
-    while(1){
+    signal(SIGINT, signal_handler);
+
+    while(keep_running){
       current_position = read_angle();
       error = angle - current_position;
       if (print_count % 10 == 0)

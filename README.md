@@ -1,6 +1,7 @@
 # quanser_galileo_shield
 Controlling a high-power quanser robotic arm with a hand-made Galileo Shield.  
 ![Shield Schematic](https://github.com/Zatura/quanser-galileo-shield/blob/master/hardware/schematic.pdf)  
+![Report(portuguese)](https://github.com/Zatura/quanser-galileo-shield/blob/master/Projeto_Microcontroladores.pdf)  
 ![shield](https://github.com/Zatura/quanser-galileo-shield/blob/master/images/working.jpg) 
 # Examples
 

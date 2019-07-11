@@ -6,8 +6,8 @@
 # Required-Stop:
 # Default-Start:     S
 # Default-Stop:
-# Short-Description: Configures GPIO and PWM for Lab 06.
-# Description:       Configures GPIO and PWMfor Lab 06.
+# Short-Description:
+# Description:  
 ### END INIT INFO
 
 case "$1" in

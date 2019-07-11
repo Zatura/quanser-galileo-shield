@@ -1,6 +1,6 @@
 # quanser_galileo_shield
 Controlling a high-power quanser robotic arm with a hand-made Galileo Shield.  
-![Shield Schematic](https://github.com/Zatura/quanser_galileo_shield/blob/master/schematic.PDF)  
+![Shield Schematic](https://github.com/Zatura/quanser-galileo-shield/blob/master/hardware/schematic.pdf)  
   
 # Examples
 
@@ -22,5 +22,5 @@ IO9 :  !OE (Enable, activates the tristate buffer from the register)
 IO10 :  SEL (Selector for 16-bits encoder high or low byte in register)  
 IO11:  PWM (pulse modulation width)  
 IO12: SD (bridge-drivers shutdown)  
-IO18: LMT_SWT2 (arm limit-sensor input)  
-IO19: LMT_SWT1 (arm limit-sensor input)  
+IO14: LMT_SWT2 (arm limit-sensor input)  
+IO15: LMT_SWT1 (arm limit-sensor input)  

@@ -100,8 +100,9 @@ int read_decoder() {
 }
 
 float read_angle(){
+  int max_reg_count = load_calibration();
   int decoder_reg = read_decoder();
-  return (float)2*M_PI*decoder_reg/QNSR_RESOLUTION;
+  return (float)M_PI*decoder_reg/max_reg_count;
 }
 
 // reset decoder

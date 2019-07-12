@@ -22,7 +22,6 @@ void stop(){
 void signal_handler() {
     keep_running = 0;
     stop();
-    disable_pwm();
 }
 
 int move(float voltage){
@@ -33,10 +32,10 @@ int move(float voltage){
   duty_cycle = fminf(96, duty_cycle);
   duty_cycle = fmaxf(1, duty_cycle);
   set_duty_cycle(duty_cycle);
-
+  enable_pwm();
+  
   // shutdown-pin low: Turn on the bridge drivers
   write_pin(SD_PIN, GPIO_LOW);
-  enable_pwm();
   return 0;
 }  
 

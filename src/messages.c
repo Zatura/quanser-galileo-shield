@@ -50,8 +50,7 @@ void usage()
 void description()
 {
     fprintf(stdout, BROWN "DESCRIPTION\n" NO_COLOR);
-    fprintf(stdout, "\tWrite here what you want to be your project description."
-            "Observe that you can break a string inside a fprintf\n\n");
+    fprintf(stdout, "\tqmotion is a quanser robotic arm controller.\n\n");
 }
 
 /*

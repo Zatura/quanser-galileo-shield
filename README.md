@@ -1,9 +1,56 @@
 # quanser_galileo_shield
 Controlling a high-power quanser robotic arm with a hand-made Galileo compatible shield.  
+PCB project design and simulation were made using proteus  https://www.labcenter.com/pcb/  
 ![Shield Schematic](https://github.com/Zatura/quanser-galileo-shield/blob/master/hardware/schematic.pdf)  
 ![Report (portuguese)](https://github.com/Zatura/quanser-galileo-shield/blob/master/Projeto_Microcontroladores.pdf)  
   
 ![shield](https://github.com/Zatura/quanser-galileo-shield/blob/master/images/shield2.jpg) 
+
+### Bare Copper PCB  
+<img src="https://github.com/Zatura/quanser-galileo-shield/blob/master/images/bare_metal.jpg" alt="alt text" width="400" height="400">
+
+### UV Masking(red tint)   
+<img src="https://github.com/Zatura/quanser-galileo-shield/blob/master/images/uv_masking.jpg" alt="alt text" width="400" height="510">
+  
+# Use and Compilation
+Compile using `make`  
+After compilation success, executable `qmotion` should be at `/bin` folder 
+ 
+```
+qmotion - quanser motion
+
+USAGE
+	qmotion [options] input file
+
+DESCRIPTION
+	qmotion is a quanser robotic arm controller
+
+OPTIONS
+	-v, --version
+		Prints qmotion version
+    
+	-h, --help
+		Prints this help message
+
+	-m VOLTAGE TIME, --move VOLTAGE TIME
+		Moves the quanser robotic arm using VOLTAGE(-27 to 27) during TIME seconds 
+
+	-t ANGLE, --target ANGLE 
+		Moves the quanser robotic arm to the target at ANGLE degrees 
+
+	-d, --decoder
+		Reads and shows decoder and limit switch status
+
+	-r, --reset
+		Resets decoder register
+
+	-p P I D, --pid P I D 
+		Sets Proportional(P), Integrative(I) and Derivative(D) gains, saved at pid.dat file
+    
+	--no-color
+		Does not use colors for printing
+```    
+    
 # Examples
 
 https://link.springer.com/content/pdf/10.1007/978-1-4302-6838-3_14.pdf
